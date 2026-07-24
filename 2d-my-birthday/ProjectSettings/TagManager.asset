@@ -41,5 +41,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Slot
+    uniqueID: 3776456389
+    locked: 0
+  - name: Pin
+    uniqueID: 1067116237
+    locked: 0
   m_RenderingLayers:
   - Default
