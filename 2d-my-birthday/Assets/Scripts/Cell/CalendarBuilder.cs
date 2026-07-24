@@ -3,6 +3,7 @@ using UnityEngine;
 public class CalendarBuilder : MonoBehaviour
 {
     [SerializeField] private CalendarLevelData levelData;
+    [SerializeField] private CurrentLevelState levelState;
     [SerializeField] private CalendarSlot slotPrefab;
     [SerializeField] private Transform gridParent;
 
@@ -15,8 +16,14 @@ public class CalendarBuilder : MonoBehaviour
 
     void Start()
     {
+        levelState.Initialize(levelData);
         BuildCalendar();
         SpawnCharacter();
+    }
+
+    void OnDestroy()
+    {
+        if (levelState != null) levelState.Clear();
     }
 
     public void BuildCalendar()
