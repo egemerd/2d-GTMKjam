@@ -4,16 +4,16 @@ using DG.Tweening;
 public class PinController : MonoBehaviour
 {
     [SerializeField] private PinValue pinValue;
-    [SerializeField] private SpriteRenderer selectionHighlight; // seçildiðinde açýlan sprite
-    [SerializeField] private SpriteRenderer hoverHighlight;     // hover'da açýlan sprite
+    [SerializeField] private GameObject selectionHighlight; // seçildiðinde açýlan sprite
+    [SerializeField] private GameObject hoverHighlight;     // hover'da açýlan sprite
 
     public int Value => pinValue.Value;
     public bool IsSelected { get; private set; }
 
     void Start()
     {
-        if (selectionHighlight != null) selectionHighlight.enabled = false;
-        if (hoverHighlight != null) hoverHighlight.enabled = false;
+        if (selectionHighlight != null) selectionHighlight.SetActive(false);
+        if (hoverHighlight != null) hoverHighlight.SetActive(false);
     }
 
     public void SetValue(int newValue)
@@ -25,14 +25,14 @@ public class PinController : MonoBehaviour
     public void SetSelected(bool selected)
     {
         IsSelected = selected;
-        if (selectionHighlight != null) selectionHighlight.enabled = selected;
+        if (selectionHighlight != null) selectionHighlight.SetActive(selected);
     }
 
     public void SetHover(bool hovering)
     {
         // Seçiliyken hover gösterme (görsel karmaþayý önle)
         if (hoverHighlight != null && !IsSelected)
-            hoverHighlight.enabled = hovering;
+            hoverHighlight.SetActive(hovering);
     }
 
     public void Consume()
