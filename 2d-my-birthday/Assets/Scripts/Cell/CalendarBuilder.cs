@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class CalendarBuilder : MonoBehaviour
@@ -14,6 +15,7 @@ public class CalendarBuilder : MonoBehaviour
 
     [SerializeField] private CharacterCard characterCard;
     [SerializeField] private MovesState movesState;
+    [SerializeField] private TextMeshPro currentYear;
 
     private CalendarSlot[] slots;
 
@@ -23,6 +25,8 @@ public class CalendarBuilder : MonoBehaviour
 
         int moveCount = levelData.endDay - levelData.startDay + 1;
         movesState.Initialize(moveCount);
+
+        currentYear.text = levelData.currentYear.ToString();
 
         BuildCalendar();
         SpawnCharacter();

@@ -391,7 +391,7 @@ MonoBehaviour:
     m_Bits: 0
   dragScaleMultiplier: 1.15
   scaleTweenDuration: 0.12
-  startScaleScaleDown: {x: 0.4, y: 0.4, z: 0.4}
+  startScaleScaleDown: {x: 0.3, y: 0.3, z: 0.3}
   startScaleOriginal: {x: 1, y: 1, z: 1}
   grownScaleTweenDuration: 0.25
   momentumDrag: 2

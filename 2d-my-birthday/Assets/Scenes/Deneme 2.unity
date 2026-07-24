@@ -473,7 +473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoveMarkerManager
   markerPrefab: {fileID: 9148642791330923950, guid: cdbb9d1da20a96d42b28861f01d348e5, type: 3}
   calendarBuilder: {fileID: 2020687968}
-  levelData: {fileID: 11400000, guid: 0a3e5be0679ac6a4badcc025c167dd33, type: 2}
+  levelData: {fileID: 11400000, guid: cfb1801b1a4af4145b6c199fe13a5eb9, type: 2}
   offsetOnSlot: {x: 0, y: 0, z: 0}
   startingDayOffset: 0
 --- !u!4 &1527734752
@@ -660,7 +660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2abb180655ec274896957aad1f22f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CalendarBuilder
-  levelData: {fileID: 11400000, guid: 0a3e5be0679ac6a4badcc025c167dd33, type: 2}
+  levelData: {fileID: 11400000, guid: cfb1801b1a4af4145b6c199fe13a5eb9, type: 2}
   levelState: {fileID: 11400000, guid: 3aabbe8e8a6a8f548a4c67ebedc4c62b, type: 2}
   slotPrefab: {fileID: 4636464680870290021, guid: 87e3b0e12336a4b4fa39b8d235c6b29b, type: 3}
   gridParent: {fileID: 553557880}
@@ -905,10 +905,6 @@ PrefabInstance:
     - target: {fileID: 6141836596713098770, guid: aa7716f0692e3b743a424aa74b0911fc, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7393940768984809078, guid: aa7716f0692e3b743a424aa74b0911fc, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8627721374617489880, guid: aa7716f0692e3b743a424aa74b0911fc, type: 3}
       propertyPath: m_AnchorMax.y
