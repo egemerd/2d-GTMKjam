@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d93c8d9e27c7f414c896971e35af812d, type: 3}
-  m_Name: Deneme
+  m_Name: Deneme3
   m_EditorClassIdentifier: Assembly-CSharp::CalendarLevelData
   totalDays: 30
   columns: 7
-  startDay: 15
+  startDay: 16
   endDay: 23
   defaultPinPrefab: {fileID: 3796665290363549456, guid: 60c309b0489c11d4c8dd220a4ef5ab65, type: 3}
-  characterPrefab: {fileID: 1216499993424713937, guid: 99cbef5986df0a1439b15ea39291e0d9, type: 3}
-  characterSpawnPosition: {x: -7, y: 3.2, z: 0}
+  characterPrefab: {fileID: 0}
+  characterSpawnPosition: {x: 0, y: 0, z: 0}
   birthMonth: 1
   birthYear: 2000
   currentYear: 2026
-  skippedDays: 
+  skippedDays: 1500000014000000
   firstDayOfWeek: 1
   startOffset: 3
   cellOverrides: []

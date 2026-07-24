@@ -36,7 +36,6 @@ public class CalendarBuilder : MonoBehaviour
         {
             int dayNumber = i + 1;
 
-            // Grid pozisyonu için offset uygula (dayNumber'a dokunmadan)
             int gridIndex = i + levelData.startOffset;
             int row = gridIndex / levelData.columns;
             int col = gridIndex % levelData.columns;
@@ -46,13 +45,25 @@ public class CalendarBuilder : MonoBehaviour
             slot.name = $"Day_{dayNumber}";
             slot.dayNumber = dayNumber;
 
+            // Modifier'larý uygula
+            CellModifier finalModifier = CellModifier.None;
+
+            if (levelData.IsDayInRange(dayNumber))
+            {
+                if (levelData.IsWeekend(dayNumber)) finalModifier |= CellModifier.Weekend;
+                if (levelData.IsSkipped(dayNumber)) finalModifier |= CellModifier.Skipped;
+            }
+
+            // Manuel override modifier'ý da varsa ekle
             CellData overrideData = levelData.GetCellOverride(dayNumber);
-            if (overrideData != null)
-                slot.modifier = overrideData.modifier;
+            if (overrideData != null) finalModifier |= overrideData.modifier;
+
+            slot.modifier = finalModifier;
+            slot.ApplyVisuals(); // yeni fonksiyon, aþaðýda
 
             slots[i] = slot;
 
-            if (levelData.IsDayInRange(dayNumber))
+            if (levelData.ShouldSpawnPin(dayNumber))
             {
                 GameObject prefabToUse = overrideData?.pinPrefabOverride != null
                     ? overrideData.pinPrefabOverride
@@ -65,8 +76,6 @@ public class CalendarBuilder : MonoBehaviour
                     pin.SetHomeSlot(slot);
                     pin.SetCharacterCard(characterCard);
                 }
-
-                // Pin deðeri = bulunduðu günün sayýsý
                 if (pinObj.TryGetComponent(out PinValue pinValue))
                 {
                     pinValue.Value = dayNumber;

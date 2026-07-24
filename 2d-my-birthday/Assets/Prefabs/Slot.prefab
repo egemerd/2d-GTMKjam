@@ -154,4 +154,8 @@ MonoBehaviour:
   dayNumber: 0
   modifier: 0
   currentPin: {fileID: 0}
-  highlightRenderer: {fileID: 0}
+  mainRenderer: {fileID: 4683916402548382917}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  weekendColor: {r: 0.9, g: 0.3, b: 0.3, a: 1}
+  skippedColor: {r: 1, g: 0.9, b: 0.2, a: 1}
+  blockedColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
