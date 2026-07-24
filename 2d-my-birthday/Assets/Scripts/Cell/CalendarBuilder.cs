@@ -63,7 +63,12 @@ public class CalendarBuilder : MonoBehaviour
 
             slots[i] = slot;
 
-            if (levelData.ShouldSpawnPin(dayNumber))
+            bool willHavePin = levelData.ShouldSpawnPin(dayNumber);
+
+            slot.SetDayNumberVisible(!willHavePin);
+
+
+            if (willHavePin)
             {
                 GameObject prefabToUse = overrideData?.pinPrefabOverride != null
                     ? overrideData.pinPrefabOverride
