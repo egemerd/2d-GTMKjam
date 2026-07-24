@@ -39,6 +39,9 @@ public class DragDrop : MonoBehaviour
     private bool dragStarted = false;
     private PinController pinController;
 
+    
+    
+
     [Header("Screen Boundaries")]
     [SerializeField] private float boundaryPadding = 0.3f;
     [SerializeField][Range(0f, 1f)] private float bounceEnergyRetention = 0.7f; // çarpma sonrası hızın % kaçı kalır
@@ -48,6 +51,7 @@ public class DragDrop : MonoBehaviour
     private int originalSortingOrder;
     private Vector3 lastValidPos;
     private CalendarSlot currentSlot;
+    private CharacterCard characterCard;
 
     private static DragDrop currentlyDragging = null;
     void Start()
@@ -188,6 +192,11 @@ public class DragDrop : MonoBehaviour
         if (dragging && Mouse.current.leftButton.wasReleasedThisFrame) EndDrag();
     }
 
+    public void SetCharacterCard(CharacterCard card)
+    {
+        characterCard = card;
+    }
+
     void StartDrag(Vector3 mouseWorld)
     {
         dragging = true;
@@ -233,6 +242,12 @@ public class DragDrop : MonoBehaviour
         // aksi halde momentum için gereken velocity uygulaması sırasında sorun olmaz
         transform.DOScale(originalScale, scaleTweenDuration).SetEase(Ease.OutQuad);
 
+        if (TryDropOnCard())
+        {
+            // Karta bırakıldı, momentum başlatma
+            return;
+        }
+
         // Snap denenmiyorsa (şu an TrySnapToSlot kapalı) → momentum devreye girsin
         // Snap açtığında: snap başarılıysa coasting = false kalmalı (aşağıdaki nota bak)
         coasting = true;
@@ -240,27 +255,31 @@ public class DragDrop : MonoBehaviour
         //TrySnapToSlot();
     }
 
-    bool TrySnapToSlot()
+    bool TryDropOnCard()
     {
-        Collider2D hit = Physics2D.OverlapPoint(transform.position, slotLayerMask);
-        if (hit != null && hit.TryGetComponent(out CalendarSlot slot) && slot.CanAcceptPin())
+        if (characterCard == null) return false;
+
+        Vector3 mouseWorld = GetMouseWorldPos();
+        if (!characterCard.IsPointerOverCard(mouseWorld)) return false;
+
+        Debug.Log($"[DragDrop] Pin ({pinController.Value}) karta bırakıldı — validation başlıyor");
+        bool accepted = characterCard.TryAcceptPin(pinController);
+
+        // Kabul edilse de reddedilse de pin şu an eski pozisyonuna kayar
+        if(!accepted)
         {
-            coasting = false; // snap oluyorsa momentum durmalı, çakışma engellenir
-            transform.DOMove(slot.transform.position, 0.18f).SetEase(Ease.OutBack);
-            slot.AssignPin(this);
-            currentSlot = slot;
-            lastValidPos = slot.transform.position;
-            return true;
+            transform.DOMove(Vector3.zero, 0.25f).SetEase(Ease.OutBack);
         }
         else
         {
-            coasting = false; // reject animasyonu için de momentum durmalı
-            transform.DOMove(lastValidPos, 0.2f).SetEase(Ease.OutBack);
-            transform.DOPunchPosition(Vector3.right * 0.1f, 0.2f, 8);
-            if (currentSlot != null) currentSlot.AssignPin(this);
-            return false;
-        }
+            transform.DOMove(characterCard.GetPinArea().position, 0.25f).SetEase(Ease.OutBack);
+        }        
+        
+        coasting = false;
+        return true;
     }
+
+    
 
     
 

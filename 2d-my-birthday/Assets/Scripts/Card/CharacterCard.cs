@@ -1,13 +1,13 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
 
 public class CharacterCard : MonoBehaviour
 {
     [Header("Positions (world space)")]
-    [SerializeField] private Vector3 hiddenPosition;   // yarýsý görünür halde
+    [SerializeField] private Vector3 hiddenPosition;   // yarÄ±sÄ± gÃ¶rÃ¼nÃ¼r halde
     [SerializeField] private Vector3 hoverPosition;    // hover'da hafif kayma
-    [SerializeField] private Vector3 revealedPosition; // týklayýnca tam açýk
+    [SerializeField] private Vector3 revealedPosition; // tÄ±klayÄ±nca tam aÃ§Ä±k
 
     [Header("Tween Settings")]
     [SerializeField] private float hoverDuration = 0.2f;
@@ -16,7 +16,10 @@ public class CharacterCard : MonoBehaviour
     [Header("References")]
     [SerializeField] private Collider2D col;
     [SerializeField] private PinDropValidatorSO dropValidator;
-    [SerializeField] private LayerMask pinLayerMask;
+    [SerializeField] private LayerMask pinLayerMaskForBlock;
+
+    [Header("Pin Area")]
+    [SerializeField] private Transform pinArea; 
 
     private Camera cam;
     private bool isRevealed = false;
@@ -33,16 +36,19 @@ public class CharacterCard : MonoBehaviour
         Vector3 mouseWorld = GetMouseWorldPos();
         bool mouseOverCard = col.OverlapPoint(mouseWorld);
 
-        // HOVER (sadece revealed deðilken)
+        // Mouse ÅŸu an bir pin'in Ã¼zerinde mi? (kartÄ±n da Ã¼zerinde olsa bile pin Ã¶ncelik alÄ±r)
+        bool mouseOverPin = Physics2D.OverlapPoint(mouseWorld, pinLayerMaskForBlock) != null;
+
+        // HOVER (sadece revealed deÄŸilken ve mouse bir pin Ã¼zerinde deÄŸilken)
         if (!isRevealed)
         {
-            if (mouseOverCard && !isHovering)
+            if (mouseOverCard && !mouseOverPin && !isHovering)
             {
                 isHovering = true;
                 transform.DOKill();
                 transform.DOMove(hoverPosition, hoverDuration).SetEase(Ease.OutQuad);
             }
-            else if (!mouseOverCard && isHovering)
+            else if ((!mouseOverCard || mouseOverPin) && isHovering)
             {
                 isHovering = false;
                 transform.DOKill();
@@ -50,13 +56,17 @@ public class CharacterCard : MonoBehaviour
             }
         }
 
-        // TIKLAMA — reveal / geri kapatma
-        if (Mouse.current.leftButton.wasPressedThisFrame && mouseOverCard)
+        // TIKLAMA â€” reveal/close (mouse bir pin Ã¼zerinde deÄŸilse)
+        if (Mouse.current.leftButton.wasPressedThisFrame && mouseOverCard && !mouseOverPin)
         {
             ToggleReveal();
         }
     }
 
+    public Transform GetPinArea()
+    {
+        return pinArea;
+    }
     void ToggleReveal()
     {
         isRevealed = !isRevealed;
@@ -67,22 +77,32 @@ public class CharacterCard : MonoBehaviour
         if (!isRevealed) isHovering = false;
     }
 
-    // DragDrop bu fonksiyonu çaðýracak — pin karta býrakýldýðýnda
+    // DragDrop bu fonksiyonu Ã§aÄŸÄ±racak â€” pin karta bÄ±rakÄ±ldÄ±ÄŸÄ±nda
     public bool TryAcceptPin(PinController pin)
     {
-        if (!isRevealed) return false; // sadece açýkken kabul et
+        Debug.Log($"[Card] TryAcceptPin Ã§aÄŸrÄ±ldÄ± â€” pin deÄŸeri: {pin.Value}, kart aÃ§Ä±k mÄ±: {isRevealed}");
 
-        bool valid = dropValidator != null && dropValidator.Validate(pin.Value);
+        if (!isRevealed)
+        {
+            Debug.Log("[Card] Kart kapalÄ±, pin kabul edilmedi.");
+            return false;
+        }
+
+        if (dropValidator == null)
+        {
+            Debug.LogError("[Card] Drop Validator ATANMAMIÅž! Inspector'dan AgeValidator asset'ini sÃ¼rÃ¼klemen lazÄ±m.");
+            return false;
+        }
+
+        bool valid = dropValidator.Validate(pin.Value);
 
         if (valid)
         {
-            Debug.Log($"[Card] OK — pin deðeri {pin.Value} yaþa uyuyor!");
-            // TODO: doðru sonuç davranýþý buraya
+            Debug.Log($"<color=lime>[Card] âœ“ BAÅžARILI â€” pin deÄŸeri {pin.Value} hedef yaÅŸa eÅŸit!</color>");
         }
         else
         {
-            Debug.Log($"[Card] YANLIÞ — pin deðeri {pin.Value}, hedef yaþa uymuyor.");
-            // TODO: yanlýþ sonuç davranýþý buraya
+            Debug.Log($"<color=orange>[Card] âœ— BAÅžARISIZ â€” pin deÄŸeri {pin.Value} hedef yaÅŸa uymuyor.</color>");
         }
 
         return valid;

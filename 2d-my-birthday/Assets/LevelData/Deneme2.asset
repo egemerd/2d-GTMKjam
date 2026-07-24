@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d93c8d9e27c7f414c896971e35af812d, type: 3}
+  m_Name: Deneme2
+  m_EditorClassIdentifier: Assembly-CSharp::CalendarLevelData
+  totalDays: 30
+  columns: 7
+  startDay: 4
+  endDay: 16
+  defaultPinPrefab: {fileID: 3796665290363549456, guid: 60c309b0489c11d4c8dd220a4ef5ab65, type: 3}
+  characterPrefab: {fileID: 1216499993424713937, guid: 99cbef5986df0a1439b15ea39291e0d9, type: 3}
+  characterSpawnPosition: {x: -7, y: 3.2, z: 0}
+  birthMonth: 2
+  birthYear: 1983
+  currentYear: 2014
+  startOffset: 1
+  cellOverrides: []

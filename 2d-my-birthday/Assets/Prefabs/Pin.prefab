@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1874103161488466511}
   - component: {fileID: 3843909427924812759}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 1531933928163858400}
   - component: {fileID: 5535123474769038494}
   - component: {fileID: 6081406719346613771}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NumberText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 7881001343302691642}
   - component: {fileID: 1779661387434008438}
   - component: {fileID: 6664357946305616793}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,6 +396,8 @@ MonoBehaviour:
   grownScaleTweenDuration: 0.25
   momentumDrag: 2
   maxMomentumSpeed: 20
+  dragThreshold: 0.1
+  characterCard: {fileID: 0}
   boundaryPadding: 0.3
   bounceEnergyRetention: 0.7
   minBounceSpeed: 1
@@ -474,7 +476,7 @@ GameObject:
   m_Component:
   - component: {fileID: 515447297660858483}
   - component: {fileID: 1458967723669676030}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -565,7 +567,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8345173247485380378}
   - component: {fileID: 6008068407267012892}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShadowHover
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -7,6 +7,15 @@ public class AgeValidatorSO : PinDropValidatorSO
 
     public override bool Validate(int pinValue)
     {
-        return levelState != null && pinValue == levelState.targetAge;
+        if (levelState == null)
+        {
+            Debug.LogError("[AgeValidator] LevelState null! Inspector'dan CurrentLevelState asset'ini sürüklemen lazým.");
+            return false;
+        }
+
+        int target = levelState.targetAge;
+        bool match = pinValue == target;
+        Debug.Log($"[AgeValidator] Pin: {pinValue} | Hedef Yaþ: {target} | Eþleþme: {match}");
+        return match;
     }
 }

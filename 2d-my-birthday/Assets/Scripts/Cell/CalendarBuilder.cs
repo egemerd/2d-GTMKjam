@@ -12,6 +12,8 @@ public class CalendarBuilder : MonoBehaviour
     [SerializeField] private float cellHeight = 1.2f;
     [SerializeField] private Vector3 origin = Vector3.zero;
 
+    [SerializeField] private CharacterCard characterCard;
+
     private CalendarSlot[] slots;
 
     void Start()
@@ -61,6 +63,7 @@ public class CalendarBuilder : MonoBehaviour
                 {
                     slot.AssignPin(pin);
                     pin.SetHomeSlot(slot);
+                    pin.SetCharacterCard(characterCard);
                 }
 
                 // Pin deðeri = bulunduðu günün sayýsý
