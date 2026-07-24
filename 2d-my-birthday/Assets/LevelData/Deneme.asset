@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CalendarLevelData
   totalDays: 30
   columns: 7
-  startDay: 3
-  endDay: 8
+  startDay: 15
+  endDay: 23
   defaultPinPrefab: {fileID: 3796665290363549456, guid: 60c309b0489c11d4c8dd220a4ef5ab65, type: 3}
   characterPrefab: {fileID: 1216499993424713937, guid: 99cbef5986df0a1439b15ea39291e0d9, type: 3}
   characterSpawnPosition: {x: -7, y: 3.2, z: 0}

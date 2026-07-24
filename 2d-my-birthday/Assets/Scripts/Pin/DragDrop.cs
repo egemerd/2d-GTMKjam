@@ -32,6 +32,13 @@ public class DragDrop : MonoBehaviour
     private Vector3 velocity;
     private Vector3 prevPos;
 
+    [Header("Click vs Drag")]
+    [SerializeField] private float dragThreshold = 0.1f; // world unit, bu kadar hareket edince drag olur
+    private Vector3 pressStartPos;
+    private bool pressed = false;
+    private bool dragStarted = false;
+    private PinController pinController;
+
     [Header("Screen Boundaries")]
     [SerializeField] private float boundaryPadding = 0.3f;
     [SerializeField][Range(0f, 1f)] private float bounceEnergyRetention = 0.7f; // çarpma sonrası hızın % kaçı kalır
@@ -50,6 +57,7 @@ public class DragDrop : MonoBehaviour
         originalScale = startScaleOriginal;
         lastValidPos = transform.position;
         if (col == null) col = GetComponent<Collider2D>();
+        pinController = GetComponent<PinController>();
         CalculateScreenBounds();
     }
 
@@ -65,11 +73,47 @@ public class DragDrop : MonoBehaviour
 
     void Update()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        if (!Mouse.current.leftButton.isPressed)
         {
-            if (currentlyDragging != null) return; // başka bir pin sürükleniyorsa bu pin'i başlatma
             Vector3 mouseWorld = GetMouseWorldPos();
-            if (col.OverlapPoint(mouseWorld)) StartDrag(mouseWorld);
+            bool isHovering = col.OverlapPoint(mouseWorld);
+            if (pinController != null) pinController.SetHover(isHovering);
+        }
+
+        if (Mouse.current.leftButton.wasPressedThisFrame && currentlyDragging == null)
+        {
+            Vector3 mouseWorld = GetMouseWorldPos();
+            if (col.OverlapPoint(mouseWorld))
+            {
+                pressed = true;
+                dragStarted = false;
+                pressStartPos = mouseWorld;
+            }
+        }
+
+        if (pressed && !dragStarted && Mouse.current.leftButton.isPressed)
+        {
+            Vector3 mouseWorld = GetMouseWorldPos();
+            if (Vector3.Distance(mouseWorld, pressStartPos) > dragThreshold)
+            {
+                dragStarted = true;
+                StartDrag(mouseWorld);
+            }
+        }
+
+        if (pressed && Mouse.current.leftButton.wasReleasedThisFrame)
+        {
+            if (dragStarted)
+            {
+                EndDrag();
+            }
+            else
+            {
+                // Sürüklemedi, sadece tıkladı → SEÇİM
+                PinSelectionManager.Instance.ToggleSelect(pinController);
+            }
+            pressed = false;
+            dragStarted = false;
         }
 
         if (dragging)
