@@ -20,6 +20,12 @@ public class PinController : MonoBehaviour
     {
         pinValue.Value = newValue;
         transform.DOPunchScale(Vector3.one * 0.15f, 0.25f); // deðer deðiþme feedback
+
+        if (newValue <= 0)
+        {
+            Debug.Log($"[Pin] Deðer 0'a indi, yok oluyor.");
+            Consume();
+        }
     }
 
     public void SetSelected(bool selected)

@@ -9,12 +9,14 @@ public class MovesState : ScriptableObject
 
     public event Action<int, int> OnMovesChanged; // (current, max)
     public event Action OnMovesDepleted;
+    public event Action OnMoveConsumed;
 
     public void Initialize(int max)
     {
         maxMoves = max;
         currentMoves = max;
         OnMovesChanged?.Invoke(currentMoves, maxMoves);
+        
     }
 
     // Bir hamle harcama giriþimi — baþarýlýysa true döner
@@ -29,7 +31,7 @@ public class MovesState : ScriptableObject
         currentMoves--;
         Debug.Log($"[MovesState] Hamle harcandý. Kalan: {currentMoves}/{maxMoves}");
         OnMovesChanged?.Invoke(currentMoves, maxMoves);
-
+        OnMoveConsumed?.Invoke();
         if (currentMoves == 0) OnMovesDepleted?.Invoke();
         return true;
     }
