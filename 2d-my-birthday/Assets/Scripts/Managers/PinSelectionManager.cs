@@ -10,6 +10,8 @@ public class PinSelectionManager : MonoBehaviour
 
     public System.Action<IReadOnlyList<PinController>> OnSelectionChanged;
 
+    [SerializeField] private MovesState movesState;
+
     void Awake()
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
@@ -51,10 +53,23 @@ public class PinSelectionManager : MonoBehaviour
     {
         if (!operation.CanExecute(selectedPins)) return false;
 
+        if (movesState != null && movesState.currentMoves <= 0)
+        {
+            Debug.Log("[Selection] Hamle kalmadý, iþlem yapýlamaz.");
+            return false;
+        }
+
+
+
         // Kopyalayarak çalýþ — Consume() ortadaki listeyi bozabilir
         var pinsCopy = new List<PinController>(selectedPins);
         operation.Execute(pinsCopy);
         ClearAll();
+
+        movesState?.ConsumeMove();
+        MoveMarkerManager.Instance?.PlaceMarker();
+
+
         return true;
     }
 }

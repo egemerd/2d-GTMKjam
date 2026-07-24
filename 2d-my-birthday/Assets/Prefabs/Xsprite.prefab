@@ -532,6 +532,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7577679201939745632}
+  - component: {fileID: -749769057055489722}
   m_Layer: 0
   m_Name: Xsprite
   m_TagString: Untagged
@@ -556,6 +557,21 @@ Transform:
   - {fileID: 1970236648934350637}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-749769057055489722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9148642791330923950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20ce743e6341b174d87b75e34d012fa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoveMarker
+  animateDuration: 0.35
+  finalScale: {x: 1, y: 1, z: 1}
+  scaleEase: 27
 --- !u!1 &9165005586067893626
 GameObject:
   m_ObjectHideFlags: 0

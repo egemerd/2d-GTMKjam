@@ -13,12 +13,17 @@ public class CalendarBuilder : MonoBehaviour
     [SerializeField] private Vector3 origin = Vector3.zero;
 
     [SerializeField] private CharacterCard characterCard;
+    [SerializeField] private MovesState movesState;
 
     private CalendarSlot[] slots;
 
     void Start()
     {
         levelState.Initialize(levelData);
+
+        int moveCount = levelData.endDay - levelData.startDay + 1;
+        movesState.Initialize(moveCount);
+
         BuildCalendar();
         SpawnCharacter();
     }
@@ -26,8 +31,10 @@ public class CalendarBuilder : MonoBehaviour
     void OnDestroy()
     {
         if (levelState != null) levelState.Clear();
+        if (movesState != null) movesState.Clear();
     }
 
+    public CalendarLevelData GetLevelData() => levelData;
     public void BuildCalendar()
     {
         slots = new CalendarSlot[levelData.totalDays];
