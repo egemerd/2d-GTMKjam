@@ -20,6 +20,11 @@ public class DragDrop : MonoBehaviour
     private Vector3 velocity;
     private Vector3 prevPos;
 
+    [Header("Scale Feedback")]
+    [SerializeField] private float dragScaleMultiplier = 1.15f;
+    [SerializeField] private float scaleTweenDuration = 0.12f;
+    private Vector3 originalScale;
+
     private int originalSortingOrder;
     private Vector3 lastValidPos;
 
@@ -87,19 +92,20 @@ public class DragDrop : MonoBehaviour
         coasting = false; // yeni drag baþlarsa coasting'i iptal et
         offset = transform.position - mouseWorld;
         originalSortingOrder = sr.sortingOrder;
-        sr.sortingOrder = 100;
+        //sr.sortingOrder = 100;
 
-        transform.DOKill();
-        transform.DOPunchScale(Vector3.one * 0.15f, 0.15f);
+        transform.DOKill(true);
+        transform.DOScale(originalScale * dragScaleMultiplier, scaleTweenDuration).SetEase(Ease.OutQuad);
     }
 
     void EndDrag()
     {
         dragging = false;
         coasting = true; // momentum fazýna geç
-        sr.sortingOrder = originalSortingOrder;
+        //sr.sortingOrder = originalSortingOrder;
 
         //TrySnapToSlot();
+        transform.DOScale(originalScale, scaleTweenDuration).SetEase(Ease.OutQuad);
     }
 
     Vector3 GetMouseWorldPos()
