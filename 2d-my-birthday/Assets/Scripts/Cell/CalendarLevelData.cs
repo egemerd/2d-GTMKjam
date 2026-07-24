@@ -16,6 +16,20 @@ public class CalendarLevelData : ScriptableObject
     [Header("Varsayılan Pin")]
     public GameObject defaultPinPrefab;
 
+    [Header("Character / Age Puzzle")]
+    public GameObject characterPrefab;
+    public Vector3 characterSpawnPosition = Vector3.zero;
+
+    [Header("Birth Date")]
+    public int birthMonth = 1;
+    public int birthYear = 2000;
+
+    [Header("Puzzle 'Today'")]
+    public int currentYear = 2026;
+
+    // Puzzle'ın hedef değeri — pin işlemleriyle ulaşılması gereken sayı
+    public int TargetAge => currentYear - birthYear;
+
     [Header("Grid Offset")]
     [Tooltip("Number of empty cells before Day 1 starts (like a real calendar's first-week offset)")]
     public int startOffset = 0;
@@ -28,5 +42,5 @@ public class CalendarLevelData : ScriptableObject
     public CellData GetCellOverride(int day)
     {
         return cellOverrides.FirstOrDefault(c => c.dayNumber == day);
-    }
+    }   
 }

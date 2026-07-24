@@ -13,7 +13,11 @@ public class CalendarBuilder : MonoBehaviour
 
     private CalendarSlot[] slots;
 
-    void Start() => BuildCalendar();
+    void Start()
+    {
+        BuildCalendar();
+        SpawnCharacter();
+    }
 
     public void BuildCalendar()
     {
@@ -58,6 +62,24 @@ public class CalendarBuilder : MonoBehaviour
                     pinValue.Value = dayNumber;
                 }
             }
+        }
+    }
+
+    void SpawnCharacter()
+    {
+        if (levelData.characterPrefab == null) return;
+
+        GameObject charObj = Instantiate(
+            levelData.characterPrefab,
+            levelData.characterSpawnPosition,
+            Quaternion.identity);
+
+        if (charObj.TryGetComponent(out CharacterInfo info))
+        {
+            info.Setup(
+                levelData.birthMonth,
+                levelData.birthYear,
+                levelData.currentYear);
         }
     }
 
