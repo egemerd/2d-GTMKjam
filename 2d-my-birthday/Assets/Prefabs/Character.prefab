@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 5902292949306500705}
   - component: {fileID: 5185921628955843437}
   - component: {fileID: 6223221391149638054}
+  - component: {fileID: 5753673777580527413}
   m_Layer: 0
   m_Name: BornYearText
   m_TagString: Untagged
@@ -321,6 +322,22 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 5185921628955843437}
   m_maskType: 0
+--- !u!114 &5753673777580527413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5079290423166488507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1766b3f1989e5894b9bd47613205ad07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextShake
+  text: {fileID: 0}
+  framesPerSecond: 10
+  strength: 0.015
+  rotationStrength: 0.015
 --- !u!1 &7729012754359579532
 GameObject:
   m_ObjectHideFlags: 0
