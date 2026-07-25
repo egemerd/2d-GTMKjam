@@ -18,7 +18,7 @@ MonoBehaviour:
   endDay: 23
   defaultPinPrefab: {fileID: 3796665290363549456, guid: 60c309b0489c11d4c8dd220a4ef5ab65, type: 3}
   characterPrefab: {fileID: 0}
-  characterSpawnPosition: {x: 0, y: 0, z: 0}
+  characterSpawnPosition: {x: -6.5, y: 2.5, z: 0}
   birthMonth: 1
   birthYear: 2000
   currentYear: 2026
