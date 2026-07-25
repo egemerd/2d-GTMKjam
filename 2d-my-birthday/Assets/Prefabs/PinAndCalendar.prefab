@@ -560,7 +560,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2252327506108682162
 Transform:
   m_ObjectHideFlags: 0
@@ -684,7 +684,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &300047711039141486
 Transform:
   m_ObjectHideFlags: 0
@@ -1004,6 +1004,18 @@ MonoBehaviour:
   momentumDrag: 2
   maxMomentumSpeed: 20
   dragThreshold: 0.1
+  pinRenderers:
+  - {fileID: 940978267386779854}
+  - {fileID: 1692431877347467709}
+  - {fileID: 3972391485076893291}
+  - {fileID: 3696071731332138417}
+  - {fileID: 6429833098665914707}
+  - {fileID: 4278752112782653336}
+  - {fileID: 5805191306236810965}
+  - {fileID: 4852357732913580082}
+  - {fileID: 1628372805578936250}
+  - {fileID: 4078189882109880363}
+  - {fileID: 3756747338077689929}
   boundaryPadding: 0.3
   bounceEnergyRetention: 0.7
   minBounceSpeed: 1

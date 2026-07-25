@@ -39,8 +39,11 @@ public class DragDrop : MonoBehaviour
     private bool dragStarted = false;
     private PinController pinController;
 
-    
-    
+    [Header("Sorting Order Management")]
+    [SerializeField] private Renderer[] pinRenderers; // tüm sprite + text renderer'ları
+    private int[] originalOrders;
+    private const int DRAG_BOOST = 100;
+
 
     [Header("Screen Boundaries")]
     [SerializeField] private float boundaryPadding = 0.3f;
@@ -54,6 +57,10 @@ public class DragDrop : MonoBehaviour
     private CharacterCard characterCard;
 
     private static DragDrop currentlyDragging = null;
+    private void Awake()
+    {
+        originalOrders = new int[pinRenderers.Length];
+    }
     void Start()
     {
         cam = Camera.main;
@@ -260,6 +267,12 @@ public class DragDrop : MonoBehaviour
         // ama scale zaten burada yeniden başlatılacak, position tween yoksa problem yok
         transform.DOKill(true);
 
+        for (int i = 0; i < pinRenderers.Length; i++)
+        {
+            originalOrders[i] = pinRenderers[i].sortingOrder;
+            pinRenderers[i].sortingOrder += DRAG_BOOST;
+        }
+
         if (!hasBeenPickedUp)
         {
             hasBeenPickedUp = true;
@@ -285,6 +298,10 @@ public class DragDrop : MonoBehaviour
         dragging = false;
         //sr.sortingOrder = originalSortingOrder;
         currentlyDragging = null;
+
+        for (int i = 0; i < pinRenderers.Length; i++)
+            pinRenderers[i].sortingOrder = originalOrders[i];
+
         // Scale tween'i (bırakınca eski boyutuna dönme) başlat
         // NOT: transform.DOKill() burada YOK — sadece kendi scale tween'imi yönetiyorum,
         // aksi halde momentum için gereken velocity uygulaması sırasında sorun olmaz
