@@ -19,7 +19,7 @@ MonoBehaviour:
   volume: 0.22
   volumeVariation: 0.058
   pitch: 1
-  pitchVariation: 0.05
+  pitchVariation: 0.009
   mixerGroup: {fileID: 0}
   loop: 0
   spatialBlend: 0
