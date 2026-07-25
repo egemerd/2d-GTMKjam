@@ -1,7 +1,6 @@
-using System.Collections.Generic;
-using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class OperationButton : MonoBehaviour
 {
@@ -9,6 +8,8 @@ public class OperationButton : MonoBehaviour
     [SerializeField] private Button button;
     [SerializeField] private Image iconImage;
     [SerializeField] private TMP_Text labelText;
+    [SerializeField] private TMP_Text remainingLabel; // sayaç göstergesi
+    [SerializeField] private OperationQuotaState quotaState;
 
     void Start()
     {
@@ -16,14 +17,36 @@ public class OperationButton : MonoBehaviour
         if (labelText != null) labelText.text = operation.operationName;
 
         button.onClick.AddListener(OnClick);
-        PinSelectionManager.Instance.OnSelectionChanged += RefreshInteractable;
-        RefreshInteractable(PinSelectionManager.Instance.SelectedPins);
+
+        // Event'lere abone ol — quota Initialize olduğunda otomatik güncellenir
+        if (PinSelectionManager.Instance != null)
+            PinSelectionManager.Instance.OnSelectionChanged += Refresh;
+
+        if (quotaState != null)
+            quotaState.OnQuotaChanged += HandleQuotaChanged;
+
+        // İlk render — quotaState hazırsa hemen değerlendir, değilse bekle
+        HandleQuotaChanged();
+    }
+
+    void HandleQuotaChanged()
+    {
+        bool isAvailable = quotaState != null && quotaState.IsOperationAvailable(operation);
+        int remaining = quotaState != null ? quotaState.GetRemaining(operation) : -999;
+
+        Debug.Log($"[Button:{operation?.operationName}] Available: {isAvailable}, Remaining: {remaining}");
+
+        gameObject.SetActive(isAvailable);
+
+        if (isAvailable) Refresh();
     }
 
     void OnDestroy()
     {
         if (PinSelectionManager.Instance != null)
-            PinSelectionManager.Instance.OnSelectionChanged -= RefreshInteractable;
+            PinSelectionManager.Instance.OnSelectionChanged -= Refresh;
+        if (quotaState != null)
+            quotaState.OnQuotaChanged -= HandleQuotaChanged;
     }
 
     void OnClick()
@@ -31,8 +54,25 @@ public class OperationButton : MonoBehaviour
         PinSelectionManager.Instance.TryExecute(operation);
     }
 
-    void RefreshInteractable(IReadOnlyList<PinController> selection)
+    void Refresh(System.Collections.Generic.IReadOnlyList<PinController> selection)
     {
-        button.interactable = operation.CanExecute(new System.Collections.Generic.List<PinController>(selection));
+        Refresh();
+    }
+
+    void Refresh()
+    {
+        bool canDoOperation = operation.CanExecute(
+            new System.Collections.Generic.List<PinController>(PinSelectionManager.Instance.SelectedPins));
+
+        bool hasUsesLeft = quotaState == null || quotaState.HasUsesLeft(operation);
+
+        button.interactable = canDoOperation && hasUsesLeft;
+
+        // Sayaç güncelle
+        if (remainingLabel != null && quotaState != null)
+        {
+            int remaining = quotaState.GetRemaining(operation);
+            remainingLabel.text = remaining.ToString();
+        }
     }
 }

@@ -27,6 +27,16 @@ public class CalendarLevelData : ScriptableObject
     [Header("Puzzle 'Today'")]
     public int currentYear = 2026;
 
+    [System.Serializable]
+    public class OperationQuota
+    {
+        public PinOperationSO operation;
+        public int uses = 1;
+    }
+
+    [Header("Operation Limits")]
+    public List<OperationQuota> availableOperations = new List<OperationQuota>();
+
     [Header("Skipped Days (kullanýcý seçimi, sarý)")]
     public List<int> skippedDays = new List<int>();
 
@@ -49,6 +59,8 @@ public class CalendarLevelData : ScriptableObject
 
     [Header("Tutorial")]
     public TutorialDataSO tutorialData;
+
+
 
     public bool IsDayInRange(int day) => day >= startDay && day <= endDay;
 

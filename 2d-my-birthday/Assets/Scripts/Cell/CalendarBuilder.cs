@@ -19,6 +19,7 @@ public class CalendarBuilder : MonoBehaviour
 
     [SerializeField] private LevelState levelStateMain;
     [SerializeField] private TutorialPanel tutorialPanel;
+    [SerializeField] private OperationQuotaState quotaState;
 
     private CalendarSlot[] slots;
     [Header("Tutorial")]
@@ -29,6 +30,7 @@ public class CalendarBuilder : MonoBehaviour
 
         int moveCount = levelData.endDay - levelData.startDay + 1;
         movesState.Initialize(moveCount);
+        quotaState.Initialize(levelData.availableOperations);
         levelStateMain.ResetState();
         currentYear.text = levelData.currentYear.ToString();
 

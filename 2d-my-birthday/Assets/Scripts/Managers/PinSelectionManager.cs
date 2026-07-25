@@ -11,6 +11,7 @@ public class PinSelectionManager : MonoBehaviour
     public System.Action<IReadOnlyList<PinController>> OnSelectionChanged;
 
     [SerializeField] private MovesState movesState;
+    [SerializeField] private OperationQuotaState quotaState;
 
     void Awake()
     {
@@ -53,22 +54,29 @@ public class PinSelectionManager : MonoBehaviour
     {
         if (!operation.CanExecute(selectedPins)) return false;
 
-        if (movesState != null && movesState.currentMoves <= 0)
+        // Quota kontrolü
+        if (quotaState != null && !quotaState.HasUsesLeft(operation))
         {
-            Debug.Log("[Selection] Hamle kalmadý, iþlem yapýlamaz.");
+            Debug.Log($"[Selection] {operation.operationName} hakký bitti.");
             return false;
         }
 
+        // Hamle kontrolü
+        if (movesState != null && movesState.currentMoves <= 0)
+        {
+            return false;
+        }
 
-
-        // Kopyalayarak çalýþ — Consume() ortadaki listeyi bozabilir
         var pinsCopy = new List<PinController>(selectedPins);
         operation.Execute(pinsCopy);
         ClearAll();
 
+        // Quota harca
+        quotaState?.ConsumeUse(operation);
+
+        // Hamle harca
         movesState?.ConsumeMove();
         MoveMarkerManager.Instance?.PlaceMarker();
-
 
         return true;
     }
