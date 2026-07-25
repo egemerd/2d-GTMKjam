@@ -1025,6 +1025,10 @@ MonoBehaviour:
   boundaryPadding: 0.3
   bounceEnergyRetention: 0.7
   minBounceSpeed: 1
+  bounceSound: {fileID: 11400000, guid: a66f05c0c318f3f449cb1c21c76bf5d3, type: 2}
+  pickupSound: {fileID: 11400000, guid: 0a9aef197fad08e4e863454f47b32233, type: 2}
+  dropSound: {fileID: 11400000, guid: 11b2174974fec1a4eb62a52e2d44e743, type: 2}
+  selectSound: {fileID: 11400000, guid: 93dc803960931fe488af771068b55114, type: 2}
 --- !u!58 &7881001343302691642
 CircleCollider2D:
   m_ObjectHideFlags: 0

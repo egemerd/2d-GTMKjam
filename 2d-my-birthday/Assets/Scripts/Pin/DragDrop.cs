@@ -59,6 +59,12 @@ public class DragDrop : MonoBehaviour
     [SerializeField] private float minBounceSpeed = 1f; // bu hızın altında sekme, sadece dur
     private Vector2 screenMin, screenMax;
 
+    [Header("Audio")]
+    [SerializeField] private SoundSO bounceSound;
+    [SerializeField] private SoundSO pickupSound;  // yeni
+    [SerializeField] private SoundSO dropSound;
+    [SerializeField] private SoundSO selectSound;
+
     private int originalSortingOrder;
     private Vector3 lastValidPos;
     private CalendarSlot currentSlot;
@@ -186,6 +192,7 @@ public class DragDrop : MonoBehaviour
             {
                 // Sürüklemedi, sadece tıkladı → SEÇİM
                 PinSelectionManager.Instance.ToggleSelect(pinController);
+                AudioManager.Instance?.Play(selectSound);
             }
             pressed = false;
             dragStarted = false;
@@ -276,7 +283,7 @@ public class DragDrop : MonoBehaviour
         offset = transform.position - mouseWorld;
         //originalSortingOrder = sr.sortingOrder;
         //sr.sortingOrder = 100;
-
+        AudioManager.Instance?.Play(pickupSound);
         if (currentSlot != null) currentSlot.ClearPin();
 
         // Sadece scale tween'ini kill et, transform.DOKill(true) tüm tweenleri öldürüyor
@@ -323,6 +330,7 @@ public class DragDrop : MonoBehaviour
         // aksi halde momentum için gereken velocity uygulaması sırasında sorun olmaz
         transform.DOScale(originalScale, scaleTweenDuration).SetEase(Ease.OutQuad);
         hasBeenReleasedOnce = true;
+        AudioManager.Instance?.Play(dropSound);
         if (TryDropOnCard())
         {
             // Karta bırakıldı, momentum başlatma
@@ -381,6 +389,8 @@ public class DragDrop : MonoBehaviour
 
         // Punch uygula — hedef scale artık doğru olduğu için doğru değere geri dönecek
         transform.DOPunchScale(Vector3.one * -0.08f, bounceRecoveryTime, 6, 0.5f);
+
+        AudioManager.Instance?.PlayAt(bounceSound, transform.position);
 
         if (!dragging && !coasting)
         {

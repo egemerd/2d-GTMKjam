@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 6e803f100aa096842a53c16f387f0654
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - levelState: {instanceID: 0}
+  - movesState: {instanceID: 0}
+  - selectionManager: {instanceID: 0}
+  - onMoveConsumed: {instanceID: 0}
+  - onMovesDepleted: {instanceID: 0}
+  - onLevelWon: {fileID: 11400000, guid: 9a37681ec726abd4da9d18a47ee66018, type: 2}
+  - onLevelLost: {instanceID: 0}
+  - onGameplayStarted: {instanceID: 0}
+  - onSelectionChanged: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

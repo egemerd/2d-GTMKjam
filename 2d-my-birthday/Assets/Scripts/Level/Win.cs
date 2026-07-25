@@ -25,6 +25,9 @@ public class Win : MonoBehaviour
     [SerializeField] private float whiteFadeDuration = 0.6f;  // beyazýn büyümesi
     [SerializeField] private float postWhiteDelay = 0.3f;     // beyaz tam kapladýktan sonra bekleme
 
+    [Header("Audio")]
+    [SerializeField] private SoundSO confettiSound;
+
     private void OnEnable()
     {
         if (levelState != null) levelState.OnLevelWon += HandleLevelWon;
@@ -65,6 +68,8 @@ public class Win : MonoBehaviour
     {
         // 1. Particle patlamasý
         if (winParticleSystem != null) winParticleSystem.Play();
+        if (confettiSound != null && AudioManager.Instance != null)
+            AudioManager.Instance.Play(confettiSound);
         yield return new WaitForSeconds(particleDelay);
 
         // 2. Text scale punch (yukarýdan aþaðý)
