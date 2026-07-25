@@ -17,6 +17,8 @@ public class CalendarBuilder : MonoBehaviour
     [SerializeField] private MovesState movesState;
     [SerializeField] private TextMeshPro currentYear;
 
+    [SerializeField] private LevelState levelStateMain;
+
     private CalendarSlot[] slots;
 
     void Start()
@@ -25,7 +27,7 @@ public class CalendarBuilder : MonoBehaviour
 
         int moveCount = levelData.endDay - levelData.startDay + 1;
         movesState.Initialize(moveCount);
-
+        levelStateMain.ResetState();
         currentYear.text = levelData.currentYear.ToString();
 
         BuildCalendar();

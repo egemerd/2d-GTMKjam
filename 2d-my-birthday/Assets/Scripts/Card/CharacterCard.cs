@@ -17,9 +17,13 @@ public class CharacterCard : MonoBehaviour
     [SerializeField] private Collider2D col;
     [SerializeField] private PinDropValidatorSO dropValidator;
     [SerializeField] private LayerMask pinLayerMaskForBlock;
+    [SerializeField] private LevelState levelState;
 
     [Header("Pin Area")]
-    [SerializeField] private Transform pinArea; 
+    [SerializeField] private Transform pinArea;
+
+
+    
 
     private Camera cam;
     private bool isRevealed = false;
@@ -99,6 +103,7 @@ public class CharacterCard : MonoBehaviour
         if (valid)
         {
             Debug.Log($"<color=lime>[Card] ✓ BAŞARILI — pin değeri {pin.Value} hedef yaşa eşit!</color>");
+            levelState?.ReportWin();
         }
         else
         {

@@ -207,6 +207,7 @@ MonoBehaviour:
   pinLayerMaskForBlock:
     serializedVersion: 2
     m_Bits: 0
+  levelState: {fileID: 11400000, guid: d9f8f5ac51740a147b5ec6fed8b5ca48, type: 2}
   pinArea: {fileID: 329181576354063240}
 --- !u!61 &8675544773779127537
 BoxCollider2D:
