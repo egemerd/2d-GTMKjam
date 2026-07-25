@@ -18,7 +18,7 @@ public class CalendarLevelData : ScriptableObject
 
     [Header("Character / Age Puzzle")]
     public GameObject characterPrefab;
-    public Vector3 characterSpawnPosition = Vector3.zero;
+    public Vector3 characterSpawnPosition = new Vector3(-6.5f, 2.5f, 0);
 
     [Header("Birth Date")]
     public int birthMonth = 1;
@@ -32,6 +32,10 @@ public class CalendarLevelData : ScriptableObject
 
     [Header("Weekend Detection")]
     public int firstDayOfWeek = 1; // varsayýlan: takvim Pazartesi baþlýyor
+
+    [Header("Weekend Rule")]
+    [Tooltip("Kapalý: haftasonu kuralý uygulanmaz, tüm günler normal gibi davranýr")]
+    public bool useWeekendRule = true;
 
     // Puzzle'ýn hedef deðeri — pin iþlemleriyle ulaþýlmasý gereken sayý
     public int TargetAge => currentYear - birthYear;
@@ -50,6 +54,8 @@ public class CalendarLevelData : ScriptableObject
 
     public bool IsWeekend(int dayNumber)
     {
+        if (!useWeekendRule) return false;
+
         // Grid'deki pozisyonu bul: offset + (day - 1)
         int gridIndex = startOffset + (dayNumber - 1);
         int columnIndex = gridIndex % columns;

@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4da959bdaa956f14ba137120f59d6029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PinSelectionManager
+  movesState: {fileID: 11400000, guid: 739ae77a9e930ef44b22c2a741aa94c4, type: 2}

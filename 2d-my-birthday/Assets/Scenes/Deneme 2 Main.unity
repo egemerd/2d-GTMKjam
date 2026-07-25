@@ -2339,10 +2339,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3816174485910384586, guid: 7e14c57bb151a8e4ba90ba0bbfe7f8a5, type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 6290865173413065072, guid: 7e14c57bb151a8e4ba90ba0bbfe7f8a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.68
@@ -2386,10 +2382,6 @@ PrefabInstance:
     - target: {fileID: 6804178048932361060, guid: 7e14c57bb151a8e4ba90ba0bbfe7f8a5, type: 3}
       propertyPath: m_Name
       value: CharacterCard
-      objectReference: {fileID: 0}
-    - target: {fileID: 8675544773779127537, guid: 7e14c57bb151a8e4ba90ba0bbfe7f8a5, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2504,7 +2496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2abb180655ec274896957aad1f22f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CalendarBuilder
-  levelData: {fileID: 11400000, guid: cfb1801b1a4af4145b6c199fe13a5eb9, type: 2}
+  levelData: {fileID: 11400000, guid: 9ba0d169322be9e41bddf91c51ebe956, type: 2}
   levelState: {fileID: 11400000, guid: 3aabbe8e8a6a8f548a4c67ebedc4c62b, type: 2}
   slotPrefab: {fileID: 4636464680870290021, guid: 87e3b0e12336a4b4fa39b8d235c6b29b, type: 3}
   gridParent: {fileID: 553557880}
@@ -2677,10 +2669,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PinSelectionManager
       objectReference: {fileID: 0}
-    - target: {fileID: 7132141437884894616, guid: 7499a362ee7f21f41a8d864a6a736a3c, type: 3}
-      propertyPath: movesState
-      value: 
-      objectReference: {fileID: 11400000, guid: 739ae77a9e930ef44b22c2a741aa94c4, type: 2}
     - target: {fileID: 7677076952070057113, guid: 7499a362ee7f21f41a8d864a6a736a3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.19251
@@ -2734,14 +2722,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 335484293795526684, guid: 500940d3592ce37458ca3ae324ca069e, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4355161468111249512, guid: 500940d3592ce37458ca3ae324ca069e, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5442514422261258227, guid: 500940d3592ce37458ca3ae324ca069e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.59
@@ -2785,18 +2765,6 @@ PrefabInstance:
     - target: {fileID: 5940791472161229007, guid: 500940d3592ce37458ca3ae324ca069e, type: 3}
       propertyPath: m_Name
       value: WinParticle
-      objectReference: {fileID: 0}
-    - target: {fileID: 5940791472161229007, guid: 500940d3592ce37458ca3ae324ca069e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6488713209881784503, guid: 500940d3592ce37458ca3ae324ca069e, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8165550335725773347, guid: 500940d3592ce37458ca3ae324ca069e, type: 3}
-      propertyPath: playOnAwake
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2911,13 +2879,13 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 2724148586020348294, guid: aa7716f0692e3b743a424aa74b0911fc, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2888252387143220859, guid: aa7716f0692e3b743a424aa74b0911fc, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888252387143220859, guid: aa7716f0692e3b743a424aa74b0911fc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4595162216187843088, guid: aa7716f0692e3b743a424aa74b0911fc, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3069,10 +3037,6 @@ PrefabInstance:
     - target: {fileID: 8704318046715708352, guid: ca0cd56481534a142b4fa88d84b03d09, type: 3}
       propertyPath: m_Name
       value: Background
-      objectReference: {fileID: 0}
-    - target: {fileID: 8704318046715708352, guid: ca0cd56481534a142b4fa88d84b03d09, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
