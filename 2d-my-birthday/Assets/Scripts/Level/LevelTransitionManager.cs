@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class LevelTransitionManager : MonoBehaviour
@@ -13,7 +14,20 @@ public class LevelTransitionManager : MonoBehaviour
         Instance = this;
     }
 
-    
+    private void Update()
+    {
+        if (Keyboard.current == null) return;
+
+        if (Keyboard.current.rKey.wasPressedThisFrame)
+        {
+            // Sadece gameplay devam ederken restart et
+            if (levelState.currentResult == LevelResult.InProgress)
+            {
+                RestartCurrentLevel();
+            }
+        }
+    }
+
     public void LoadNextLevel()
     {
         if (levelState != null) levelState.ResetState();
