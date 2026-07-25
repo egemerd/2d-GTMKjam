@@ -203,7 +203,7 @@ public class DragDrop : MonoBehaviour
         coasting = false; // yeni drag başlarsa momentum'u iptal et
         currentlyDragging = this;
         offset = transform.position - mouseWorld;
-        originalSortingOrder = sr.sortingOrder;
+        //originalSortingOrder = sr.sortingOrder;
         //sr.sortingOrder = 100;
 
         if (currentSlot != null) currentSlot.ClearPin();
