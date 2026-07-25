@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af03b8f01bdc3b34db36e398a07897e9, type: 3}
+  m_Name: DialogueSequence
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSequenceSO
+  entries:
+  - text: You are the KING!
+    charDelayOverride: 0
+    holdAfterOverride: 0
+    waitForInput: 0
+  - text: You are the AASDASDASD
+    charDelayOverride: 0
+    holdAfterOverride: 0
+    waitForInput: 0
+  - text: You are the KING!AEGASD ASD ASDASDAEG
+    charDelayOverride: 0
+    holdAfterOverride: 0
+    waitForInput: 0
+  defaultCharDelay: 0.04
+  defaultHoldAfter: 1.5
