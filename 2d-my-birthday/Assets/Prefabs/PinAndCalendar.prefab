@@ -1016,6 +1016,12 @@ MonoBehaviour:
   - {fileID: 1628372805578936250}
   - {fileID: 4078189882109880363}
   - {fileID: 3756747338077689929}
+  collisionRadius: 0.5
+  bounceForce: 3
+  bounceRecoveryTime: 0.2
+  pinLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
   boundaryPadding: 0.3
   bounceEnergyRetention: 0.7
   minBounceSpeed: 1

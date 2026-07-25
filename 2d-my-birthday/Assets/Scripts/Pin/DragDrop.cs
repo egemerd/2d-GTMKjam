@@ -44,6 +44,14 @@ public class DragDrop : MonoBehaviour
     private int[] originalOrders;
     private const int DRAG_BOOST = 100;
 
+    [Header("Pin-to-Pin Collision")]
+    [SerializeField] private float collisionRadius = 0.5f;      // pin'in çarpışma yarıçapı
+    [SerializeField] private float bounceForce = 3f;            // itme kuvveti
+    [SerializeField] private float bounceRecoveryTime = 0.2f;   // squash animasyon süresi
+    [SerializeField] private LayerMask pinLayerMask;            // sadece pin layer'ını tara
+
+    private float collisionCooldown = 0f; // aynı frame'de tekrar tekrar tetiklenmesin
+    private const float COLLISION_COOLDOWN_TIME = 0.15f;
 
     [Header("Screen Boundaries")]
     [SerializeField] private float boundaryPadding = 0.3f;
@@ -55,7 +63,7 @@ public class DragDrop : MonoBehaviour
     private Vector3 lastValidPos;
     private CalendarSlot currentSlot;
     private CharacterCard characterCard;
-
+    private bool hasBeenReleasedOnce = false;
     private static DragDrop currentlyDragging = null;
     private void Awake()
     {
@@ -84,6 +92,14 @@ public class DragDrop : MonoBehaviour
 
     void Update()
     {
+        if ((dragging || coasting) && collisionCooldown <= 0f && hasBeenReleasedOnce)
+        {
+            CheckPinCollisions();
+        }
+
+        if (collisionCooldown > 0f)
+            collisionCooldown -= Time.deltaTime;
+
         if (!Mouse.current.leftButton.isPressed)
         {
             Vector3 mouseWorld = GetMouseWorldPos();
@@ -306,7 +322,7 @@ public class DragDrop : MonoBehaviour
         // NOT: transform.DOKill() burada YOK — sadece kendi scale tween'imi yönetiyorum,
         // aksi halde momentum için gereken velocity uygulaması sırasında sorun olmaz
         transform.DOScale(originalScale, scaleTweenDuration).SetEase(Ease.OutQuad);
-
+        hasBeenReleasedOnce = true;
         if (TryDropOnCard())
         {
             // Karta bırakıldı, momentum başlatma
@@ -318,6 +334,58 @@ public class DragDrop : MonoBehaviour
         coasting = true;
 
         //TrySnapToSlot();
+    }
+
+    void CheckPinCollisions()
+    {
+        // Bu pin'in etrafındaki diğer collider'ları bul
+        Collider2D[] nearbyColliders = Physics2D.OverlapCircleAll(
+            transform.position, collisionRadius, pinLayerMask);
+
+        foreach (var other in nearbyColliders)
+        {
+            if (other == col) continue; // kendini atla
+
+            var otherPin = other.GetComponent<DragDrop>();
+            if (otherPin == null) continue;
+
+            // İtme yönünü hesapla (diğer pinden bize doğru)
+            Vector3 pushDirection = (transform.position - other.transform.position).normalized;
+            if (pushDirection.sqrMagnitude < 0.001f)
+                pushDirection = Random.insideUnitCircle.normalized; // aynı noktadalarsa rastgele yön
+
+            // İki pin için de bounce tetikle
+            ApplyBounce(pushDirection);
+            otherPin.ApplyBounce(-pushDirection);
+
+            collisionCooldown = COLLISION_COOLDOWN_TIME;
+            break; // aynı frame'de birden fazla collision tetiklemesin
+        }
+    }
+
+    public void ApplyBounce(Vector3 direction)
+    {
+        if (!hasBeenReleasedOnce) return;
+
+        velocity += direction * bounceForce;
+        velocity = Vector3.ClampMagnitude(velocity, maxMomentumSpeed);
+
+        // ÖNCE tüm scale tween'lerini öldür
+        transform.DOKill();
+
+        // Şu an olması gereken doğru scale'i belirle
+        Vector3 targetScale = dragging ? originalScale * dragScaleMultiplier : originalScale;
+
+        // Scale'i doğru değere zorla (geçmişte yarım kalmış tween varsa temizle)
+        transform.localScale = targetScale;
+
+        // Punch uygula — hedef scale artık doğru olduğu için doğru değere geri dönecek
+        transform.DOPunchScale(Vector3.one * -0.08f, bounceRecoveryTime, 6, 0.5f);
+
+        if (!dragging && !coasting)
+        {
+            coasting = true;
+        }
     }
 
     bool TryDropOnCard()
