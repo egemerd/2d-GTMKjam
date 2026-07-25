@@ -80,14 +80,62 @@ public class DragDrop : MonoBehaviour
         if (!Mouse.current.leftButton.isPressed)
         {
             Vector3 mouseWorld = GetMouseWorldPos();
-            bool isHovering = col.OverlapPoint(mouseWorld);
+
+            // En üstteki pini bul
+            Collider2D[] hits = Physics2D.OverlapPointAll(mouseWorld);
+            DragDrop topPin = null;
+            int highestOrder = int.MinValue;
+
+            foreach (var hit in hits)
+            {
+                var candidate = hit.GetComponent<DragDrop>();
+                if (candidate == null) continue;
+
+                var candidateSr = candidate.GetComponent<SpriteRenderer>()
+                                  ?? candidate.GetComponentInChildren<SpriteRenderer>();
+                int order = candidateSr != null ? candidateSr.sortingOrder : 0;
+
+                if (order > highestOrder)
+                {
+                    highestOrder = order;
+                    topPin = candidate;
+                }
+            }
+
+            // Sadece en üstteki pin hover olsun, diğerleri hover'ı kapatsın
+            bool isHovering = (topPin == this);
             if (pinController != null) pinController.SetHover(isHovering);
         }
 
         if (Mouse.current.leftButton.wasPressedThisFrame && currentlyDragging == null)
         {
             Vector3 mouseWorld = GetMouseWorldPos();
-            if (col.OverlapPoint(mouseWorld))
+
+            // Aynı noktadaki tüm collider'ları bul
+            Collider2D[] hits = Physics2D.OverlapPointAll(mouseWorld);
+
+            // En üstteki pin'i sorting order'a göre bul
+            DragDrop topPin = null;
+            int highestOrder = int.MinValue;
+
+            foreach (var hit in hits)
+            {
+                var candidate = hit.GetComponent<DragDrop>();
+                if (candidate == null) continue;
+
+                var candidateSr = candidate.GetComponent<SpriteRenderer>()
+                                  ?? candidate.GetComponentInChildren<SpriteRenderer>();
+                int order = candidateSr != null ? candidateSr.sortingOrder : 0;
+
+                if (order > highestOrder)
+                {
+                    highestOrder = order;
+                    topPin = candidate;
+                }
+            }
+
+            // Sadece EN ÜSTTEKİ pin tıklamayı alsın
+            if (topPin == this && col.OverlapPoint(mouseWorld))
             {
                 pressed = true;
                 dragStarted = false;
