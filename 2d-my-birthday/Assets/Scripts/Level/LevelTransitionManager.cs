@@ -13,6 +13,7 @@ public class LevelTransitionManager : MonoBehaviour
         Instance = this;
     }
 
+    
     public void LoadNextLevel()
     {
         if (levelState != null) levelState.ResetState();

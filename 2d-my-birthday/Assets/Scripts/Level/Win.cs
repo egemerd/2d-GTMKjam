@@ -15,6 +15,8 @@ public class Win : MonoBehaviour
 
     [Header("White Flash Overlay")]
     [SerializeField] private CanvasGroup whiteOverlay;
+    [SerializeField] private CanvasGroup startImage;
+
 
     [Header("Timing")]
     [SerializeField] private float particleDelay = 0.6f;      // particle sonrasý text'e geçiþ
@@ -33,6 +35,10 @@ public class Win : MonoBehaviour
         if (levelState != null) levelState.OnLevelWon -= HandleLevelWon;
     }
 
+    private void Awake()
+    {
+        StartCoroutine(LevelStartAnimation());
+    }
     private void Start()
     {
         // Baþlangýç durumlarý
@@ -101,6 +107,19 @@ public class Win : MonoBehaviour
         // Deðer büyük çünkü ekraný tamamen kaplamasý gerekiyor
         Tween scaleTween = whiteOverlay.transform.DOScale(Vector3.one * 20f, whiteFadeDuration).SetEase(Ease.InQuad);
 
+        yield return scaleTween.WaitForCompletion();
+    }
+
+    private IEnumerator LevelStartAnimation()
+    {
+        if (startImage == null) yield break;
+
+        startImage.gameObject.SetActive(true);
+        startImage.alpha = 1f;
+
+        // Yuvarlak scale up — merkezden ekraný kaplayana kadar
+        // Deðer büyük çünkü ekraný tamamen kaplamasý gerekiyor
+        Tween scaleTween = startImage.transform.DOScale(Vector3.zero, whiteFadeDuration).SetEase(Ease.InQuad);
         yield return scaleTween.WaitForCompletion();
     }
 }
