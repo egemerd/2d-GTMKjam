@@ -15,6 +15,9 @@ public class DragDrop : MonoBehaviour
     [SerializeField] private Collider2D col;
     [SerializeField] private LayerMask slotLayerMask;
 
+    [Header("Level State")]
+    [SerializeField] private LevelState levelState;
+
     [Header("Scale Feedback")]
     [SerializeField] private float dragScaleMultiplier = 1.15f;
     [SerializeField] private float scaleTweenDuration = 0.12f;
@@ -105,6 +108,8 @@ public class DragDrop : MonoBehaviour
 
         if (collisionCooldown > 0f)
             collisionCooldown -= Time.deltaTime;
+
+        if (levelState != null && levelState.currentResult != LevelResult.InProgress) return;
 
         if (!Mouse.current.leftButton.isPressed)
         {

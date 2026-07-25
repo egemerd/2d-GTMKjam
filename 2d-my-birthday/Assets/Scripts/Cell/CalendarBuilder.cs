@@ -18,9 +18,11 @@ public class CalendarBuilder : MonoBehaviour
     [SerializeField] private TextMeshPro currentYear;
 
     [SerializeField] private LevelState levelStateMain;
+    [SerializeField] private TutorialPanel tutorialPanel;
 
     private CalendarSlot[] slots;
-
+    [Header("Tutorial")]
+    public TutorialDataSO tutorialData;
     void Start()
     {
         levelState.Initialize(levelData);
@@ -32,6 +34,15 @@ public class CalendarBuilder : MonoBehaviour
 
         BuildCalendar();
         SpawnCharacter();
+
+        if (levelData.tutorialData != null)
+        {
+            tutorialPanel.Show(levelData.tutorialData, () => levelStateMain.StartGameplay());
+        }
+        else
+        {
+            levelStateMain.StartGameplay();
+        }
     }
 
     void OnDestroy()

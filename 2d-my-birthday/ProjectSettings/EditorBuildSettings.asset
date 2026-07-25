@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Deneme 2 Main.unity
     guid: 402787519474abe4d92900ab8d50741d
   - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 623b242aa92f5524abc7ae8c5b566620
+  - enabled: 1
     path: Assets/Scenes/Deneme 2 Main 2.unity
     guid: 2a4b99e9db81cad40be6f61cd749f5ab
   - enabled: 1

@@ -3,6 +3,7 @@ using System;
 
 public enum LevelResult
 {
+    NotStarted,  // yeni — tutorial/intro sırasında
     InProgress,
     Won,
     Lost
@@ -11,15 +12,22 @@ public enum LevelResult
 [CreateAssetMenu(fileName = "LevelState", menuName = "Calendar/Runtime/Level State")]
 public class LevelState : ScriptableObject
 {
-    [System.NonSerialized] public LevelResult currentResult = LevelResult.InProgress;
+    [System.NonSerialized] public LevelResult currentResult = LevelResult.NotStarted;
 
     public event Action OnLevelWon;
     public event Action OnLevelLost;
     public event Action OnLevelReset;
 
+    public void StartGameplay()
+    {
+        if (currentResult != LevelResult.NotStarted) return;
+        currentResult = LevelResult.InProgress;
+        Debug.Log("[LevelState] Oynanış başladı.");
+    }
+
     public void ReportWin()
     {
-        if (currentResult != LevelResult.InProgress) return; // zaten karar verildi
+        if (currentResult != LevelResult.InProgress) return;
         currentResult = LevelResult.Won;
         Debug.Log("[LevelState] ✓ LEVEL KAZANILDI");
         OnLevelWon?.Invoke();
@@ -35,7 +43,7 @@ public class LevelState : ScriptableObject
 
     public void ResetState()
     {
-        currentResult = LevelResult.InProgress;
+        currentResult = LevelResult.NotStarted; // InProgress değil, NotStarted
         OnLevelReset?.Invoke();
     }
 }

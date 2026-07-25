@@ -1030,6 +1030,7 @@ MonoBehaviour:
   slotLayerMask:
     serializedVersion: 2
     m_Bits: 0
+  levelState: {fileID: 11400000, guid: d9f8f5ac51740a147b5ec6fed8b5ca48, type: 2}
   dragScaleMultiplier: 1.15
   scaleTweenDuration: 0.12
   startScaleScaleDown: {x: 0.3, y: 0.3, z: 0.3}

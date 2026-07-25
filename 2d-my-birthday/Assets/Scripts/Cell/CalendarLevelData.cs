@@ -43,6 +43,9 @@ public class CalendarLevelData : ScriptableObject
     [Header("Özel Hücreler (sadece override gereken günler)")]
     public List<CellData> cellOverrides = new List<CellData>();
 
+    [Header("Tutorial")]
+    public TutorialDataSO tutorialData;
+
     public bool IsDayInRange(int day) => day >= startDay && day <= endDay;
 
     public bool IsWeekend(int dayNumber)
