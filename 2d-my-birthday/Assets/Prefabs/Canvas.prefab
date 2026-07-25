@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 7975629101186810997}
   - component: {fileID: 1640639181404989509}
   - component: {fileID: 828873178747872106}
+  - component: {fileID: 4569799701287526881}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -205,6 +206,22 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4569799701287526881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861223615489197838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1766b3f1989e5894b9bd47613205ad07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextShake
+  text: {fileID: 0}
+  framesPerSecond: 10
+  strength: 0.5
+  rotationStrength: 0.5
 --- !u!1 &2112005237802995002
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +233,7 @@ GameObject:
   - component: {fileID: 422903358867943974}
   - component: {fileID: 6395392435468981110}
   - component: {fileID: 6760948524977494722}
+  - component: {fileID: 8679637820439217480}
   m_Layer: 0
   m_Name: BornYearText
   m_TagString: Untagged
@@ -239,8 +257,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -966.54, y: -544.16}
-  m_SizeDelta: {x: 5, y: 5}
+  m_AnchoredPosition: {x: -799, y: -451.8}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &6395392435468981110
 MeshRenderer:
@@ -338,8 +356,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 7
-  m_fontSizeBase: 7
+  m_fontSize: 903.7
+  m_fontSizeBase: 903.7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -377,7 +395,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -184.48718, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -386,6 +404,22 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 6395392435468981110}
   m_maskType: 0
+--- !u!114 &8679637820439217480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112005237802995002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1766b3f1989e5894b9bd47613205ad07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextShake
+  text: {fileID: 0}
+  framesPerSecond: 10
+  strength: 0.8
+  rotationStrength: 0.8
 --- !u!1 &2523494785273952224
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,6 +431,7 @@ GameObject:
   - component: {fileID: 9163436178340445729}
   - component: {fileID: 8283426093494775660}
   - component: {fileID: 2773278240738401221}
+  - component: {fileID: 2724148586020348294}
   m_Layer: 5
   m_Name: FullScreenSprites
   m_TagString: Untagged
@@ -461,6 +496,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2724148586020348294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2523494785273952224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7ba6668fa0686e46b7c716c512d749f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterBoil
+  target: {fileID: 9163436178340445729}
+  framesPerSecond: 10
+  positionStrength: 0.08
+  rotationStrength: 0.09
+  scaleStrength: 0.005
 --- !u!1 &2888252387143220859
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,6 +630,7 @@ GameObject:
   - component: {fileID: 7771932135749144960}
   - component: {fileID: 2214332139664165933}
   - component: {fileID: 7465347924363328064}
+  - component: {fileID: 6301402509490786762}
   - component: {fileID: 2344641822572328518}
   m_Layer: 5
   m_Name: DaysText
@@ -602,7 +655,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -201, y: -50}
+  m_AnchoredPosition: {x: -211, y: -50}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2214332139664165933
@@ -705,6 +758,22 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6301402509490786762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3113563733375983125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1766b3f1989e5894b9bd47613205ad07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextShake
+  text: {fileID: 7465347924363328064}
+  framesPerSecond: 10
+  strength: 2.6
+  rotationStrength: 2
 --- !u!114 &2344641822572328518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -731,6 +800,7 @@ GameObject:
   - component: {fileID: 1030155766366475372}
   - component: {fileID: 1133375769305686050}
   - component: {fileID: 1032116707873558143}
+  - component: {fileID: 5646179967889773421}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -812,8 +882,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 21.48
+  m_fontSizeBase: 21.48
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -857,6 +927,22 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5646179967889773421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3238333366114045393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1766b3f1989e5894b9bd47613205ad07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextShake
+  text: {fileID: 0}
+  framesPerSecond: 10
+  strength: 0.5
+  rotationStrength: 0.5
 --- !u!1 &4555071209173320381
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,6 +954,7 @@ GameObject:
   - component: {fileID: 6361496614215227065}
   - component: {fileID: 4895435926875275424}
   - component: {fileID: 5645792914441283090}
+  - component: {fileID: 1728484693138978496}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -994,6 +1081,22 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1728484693138978496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4555071209173320381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1766b3f1989e5894b9bd47613205ad07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextShake
+  text: {fileID: 0}
+  framesPerSecond: 10
+  strength: 0.5
+  rotationStrength: 0.5
 --- !u!1 &4934424219386520302
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,6 +1108,7 @@ GameObject:
   - component: {fileID: 7137451296870730033}
   - component: {fileID: 8038601571933167559}
   - component: {fileID: 1796034178995139004}
+  - component: {fileID: 8191432582651441611}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1131,6 +1235,22 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8191432582651441611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4934424219386520302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1766b3f1989e5894b9bd47613205ad07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextShake
+  text: {fileID: 0}
+  framesPerSecond: 10
+  strength: 0.5
+  rotationStrength: 0.5
 --- !u!1 &5200978318548992862
 GameObject:
   m_ObjectHideFlags: 0
@@ -1418,6 +1538,7 @@ GameObject:
   - component: {fileID: 9209411873686704968}
   - component: {fileID: 7997230301621644016}
   - component: {fileID: 2259993158584683901}
+  - component: {fileID: 6670492414030570514}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1544,6 +1665,22 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6670492414030570514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6007944907827843635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1766b3f1989e5894b9bd47613205ad07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextShake
+  text: {fileID: 0}
+  framesPerSecond: 10
+  strength: 0.5
+  rotationStrength: 0.5
 --- !u!1 &7393940768984809078
 GameObject:
   m_ObjectHideFlags: 0
@@ -1631,6 +1768,7 @@ GameObject:
   - component: {fileID: 111635963998900669}
   - component: {fileID: 5373440666912420169}
   - component: {fileID: 8788924836211565545}
+  - component: {fileID: 7543447790800459455}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1757,6 +1895,22 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7543447790800459455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7894717401149076558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1766b3f1989e5894b9bd47613205ad07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextShake
+  text: {fileID: 0}
+  framesPerSecond: 10
+  strength: 0.5
+  rotationStrength: 0.5
 --- !u!1 &8118203346894751128
 GameObject:
   m_ObjectHideFlags: 0
@@ -1766,6 +1920,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5187015482240263541}
+  - component: {fileID: 9076485354762679265}
   - component: {fileID: 7116433574103142180}
   - component: {fileID: 914175252114033441}
   m_Layer: 5
@@ -1794,6 +1949,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &9076485354762679265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8118203346894751128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1766b3f1989e5894b9bd47613205ad07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextShake
+  text: {fileID: 0}
+  framesPerSecond: 10
+  strength: 1
+  rotationStrength: 1
 --- !u!222 &7116433574103142180
 CanvasRenderer:
   m_ObjectHideFlags: 0
