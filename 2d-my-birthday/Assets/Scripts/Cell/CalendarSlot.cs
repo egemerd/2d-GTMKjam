@@ -13,6 +13,7 @@ public class CalendarSlot : MonoBehaviour
     [SerializeField] private Color weekendColor = new Color(0.9f, 0.3f, 0.3f);
     [SerializeField] private Color skippedColor = new Color(1f, 0.9f, 0.2f);
     [SerializeField] private Color blockedColor = new Color(0.3f, 0.3f, 0.3f);
+    [SerializeField] private Color rangeBoundaryColor = Color.green;
 
     [Header("Day Number Text (aralýk dýþý hücreler için)")]
     [SerializeField] private TMP_Text dayNumberLabel;
@@ -39,6 +40,7 @@ public class CalendarSlot : MonoBehaviour
             if (modifier.HasFlag(CellModifier.Weekend)) mainRenderer.color = weekendColor;
             else if (modifier.HasFlag(CellModifier.Skipped)) mainRenderer.color = skippedColor;
             else if (modifier.HasFlag(CellModifier.Blocked)) mainRenderer.color = blockedColor;
+            else if (modifier.HasFlag(CellModifier.RangeBoundary)) mainRenderer.color = rangeBoundaryColor;
             else mainRenderer.color = normalColor;
         }
     }

@@ -8,5 +8,6 @@ public enum CellModifier
     Blocked = 1 << 1,
     Special = 1 << 2,
     Weekend = 1 << 3, // yeni: haftasonu (kýrmýzý)
-    Skipped = 1 << 4
+    Skipped = 1 << 4,
+    RangeBoundary = 1 << 5,
 }

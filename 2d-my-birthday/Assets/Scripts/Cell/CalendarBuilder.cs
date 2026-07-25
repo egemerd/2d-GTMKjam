@@ -65,6 +65,9 @@ public class CalendarBuilder : MonoBehaviour
             {
                 if (levelData.IsWeekend(dayNumber)) finalModifier |= CellModifier.Weekend;
                 if (levelData.IsSkipped(dayNumber)) finalModifier |= CellModifier.Skipped;
+
+                if (dayNumber == levelData.startDay || dayNumber == levelData.endDay)
+                    finalModifier |= CellModifier.RangeBoundary;
             }
 
             // Manuel override modifier'ý da varsa ekle
