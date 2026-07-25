@@ -1,10 +1,11 @@
 using UnityEngine;
-using TMPro; // TextMeshPro kullanýyorsan, kullanmýyorsan UnityEngine.UI.Text
+using TMPro;
+using System.Collections.Generic;
 
 public class PinValue : MonoBehaviour
 {
     [SerializeField] private int value;
-    [SerializeField] private TMP_Text valueLabel; // opsiyonel: pin üstündeki sayý görseli
+    [SerializeField] private List<TMP_Text> valueLabels = new List<TMP_Text>();
 
     public int Value
     {
@@ -12,14 +13,16 @@ public class PinValue : MonoBehaviour
         set
         {
             this.value = value;
-            RefreshLabel();
+            RefreshLabels();
         }
     }
 
-    void Start() => RefreshLabel();
+    void Start() => RefreshLabels();
 
-    void RefreshLabel()
+    void RefreshLabels()
     {
-        if (valueLabel != null) valueLabel.text = value.ToString();
+        string s = value.ToString();
+        foreach (var label in valueLabels)
+            if (label != null) label.text = s;
     }
 }

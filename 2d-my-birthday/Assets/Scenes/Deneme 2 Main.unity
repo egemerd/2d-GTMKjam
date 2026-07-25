@@ -210,6 +210,66 @@ SpriteRenderer:
   m_SpriteTileMode: 1
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1001 &442425563
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3796665290363549456, guid: 60c309b0489c11d4c8dd220a4ef5ab65, type: 3}
+      propertyPath: m_Name
+      value: Pin (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8550830385364501040, guid: 60c309b0489c11d4c8dd220a4ef5ab65, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.5212
+      objectReference: {fileID: 0}
+    - target: {fileID: 8550830385364501040, guid: 60c309b0489c11d4c8dd220a4ef5ab65, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.94595
+      objectReference: {fileID: 0}
+    - target: {fileID: 8550830385364501040, guid: 60c309b0489c11d4c8dd220a4ef5ab65, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8550830385364501040, guid: 60c309b0489c11d4c8dd220a4ef5ab65, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8550830385364501040, guid: 60c309b0489c11d4c8dd220a4ef5ab65, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8550830385364501040, guid: 60c309b0489c11d4c8dd220a4ef5ab65, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8550830385364501040, guid: 60c309b0489c11d4c8dd220a4ef5ab65, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8550830385364501040, guid: 60c309b0489c11d4c8dd220a4ef5ab65, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8550830385364501040, guid: 60c309b0489c11d4c8dd220a4ef5ab65, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8550830385364501040, guid: 60c309b0489c11d4c8dd220a4ef5ab65, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2926339828801815004, guid: 60c309b0489c11d4c8dd220a4ef5ab65, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: 60c309b0489c11d4c8dd220a4ef5ab65, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,7 +1217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PinValue
   value: 0
-  valueLabel: {fileID: 5328284144699759944}
+  valueLabels: []
 --- !u!4 &546773832833966348
 Transform:
   m_ObjectHideFlags: 0
@@ -1276,29 +1336,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1779661387434008438, guid: e58059f32b3fa1942b6010ba9a940f44, type: 3}
-      propertyPath: valueLabel
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3796665290363549456, guid: e58059f32b3fa1942b6010ba9a940f44, type: 3}
       propertyPath: m_Name
       value: PinAndCalendar
-      objectReference: {fileID: 0}
-    - target: {fileID: 3819290849732178119, guid: e58059f32b3fa1942b6010ba9a940f44, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6664357946305616793, guid: e58059f32b3fa1942b6010ba9a940f44, type: 3}
-      propertyPath: hoverHighlight
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6664357946305616793, guid: e58059f32b3fa1942b6010ba9a940f44, type: 3}
-      propertyPath: selectionHighlight
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7276110375844711515, guid: e58059f32b3fa1942b6010ba9a940f44, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8550830385364501040, guid: e58059f32b3fa1942b6010ba9a940f44, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1344,7 +1384,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2037787016226012074, guid: e58059f32b3fa1942b6010ba9a940f44, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 174029495852868133, guid: e58059f32b3fa1942b6010ba9a940f44, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e58059f32b3fa1942b6010ba9a940f44, type: 3}
@@ -1361,7 +1401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PinValue
   value: 0
-  valueLabel: {fileID: 6081406719537130273}
+  valueLabels: []
 --- !u!4 &1924054725468779312
 Transform:
   m_ObjectHideFlags: 0
@@ -1813,11 +1853,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!1 &4041982800261801841 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7146666835335727713, guid: e58059f32b3fa1942b6010ba9a940f44, type: 3}
-  m_PrefabInstance: {fileID: 1001667656321226369}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4711903254905038310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1860,8 +1895,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PinController
   pinValue: {fileID: 370985773262134325}
-  selectionHighlight: {fileID: 2705714442390475032}
-  hoverHighlight: {fileID: 6165645826041394661}
+  pinVisualGroup: {fileID: 0}
+  calendarVisualGroup: {fileID: 0}
+  pinSelectionHighlight: {fileID: 0}
+  pinHoverHighlight: {fileID: 0}
+  calendarSelectionHighlight: {fileID: 0}
+  calendarHoverHighlight: {fileID: 0}
 --- !u!1 &4970317686868688780
 GameObject:
   m_ObjectHideFlags: 0
@@ -1879,11 +1918,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &5189386144069108620 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2763237599256054985, guid: e58059f32b3fa1942b6010ba9a940f44, type: 3}
-  m_PrefabInstance: {fileID: 1001667656321226369}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5192220739234440766
 Transform:
   m_ObjectHideFlags: 0
@@ -2163,17 +2197,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6081406719537130273 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7285359079078194366, guid: e58059f32b3fa1942b6010ba9a940f44, type: 3}
-  m_PrefabInstance: {fileID: 1001667656321226369}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshPro
 --- !u!1 &6165645826041394661
 GameObject:
   m_ObjectHideFlags: 0
@@ -2203,8 +2226,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PinController
   pinValue: {fileID: 1779661387384007260}
-  selectionHighlight: {fileID: 4041982800261801841}
-  hoverHighlight: {fileID: 5189386144069108620}
+  pinVisualGroup: {fileID: 0}
+  calendarVisualGroup: {fileID: 0}
+  pinSelectionHighlight: {fileID: 0}
+  pinHoverHighlight: {fileID: 0}
+  calendarSelectionHighlight: {fileID: 0}
+  calendarHoverHighlight: {fileID: 0}
 --- !u!114 &6697039603731059599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2556,3 +2583,4 @@ SceneRoots:
   - {fileID: 7727622722221261171}
   - {fileID: 1592395893}
   - {fileID: 1001667656321226369}
+  - {fileID: 442425563}

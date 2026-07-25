@@ -1,9 +1,10 @@
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "CountdownOperation", menuName = "Calendar/Operations/Countdown")]
 public class CountdownOperationSO : PinOperationSO
 {
+    [Header("Runtime References")]
     [SerializeField] private MovesState movesState;
 
     [Header("Countdown Behavior")]
@@ -13,11 +14,18 @@ public class CountdownOperationSO : PinOperationSO
     void OnEnable() => requiredPinCount = 1;
 
     protected override bool ValidateSpecific(List<PinController> pins)
-        => pins[0].GetComponent<CountdownEffect>() == null;
+    {
+        // Ayný pin'e ikinci kez countdown eklenmesin
+        return pins[0].GetComponent<CountdownEffect>() == null;
+    }
 
     public override void Execute(List<PinController> pins)
     {
-        var effect = pins[0].gameObject.AddComponent<CountdownEffect>();
+        // Görsel mod deðiþimi
+        pins[0].SetCalendarMode(true);
+
+        // Effect ekle
+        CountdownEffect effect = pins[0].gameObject.AddComponent<CountdownEffect>();
         effect.Initialize(pins[0], movesState, skipFirstMove, startPaused);
     }
 }
