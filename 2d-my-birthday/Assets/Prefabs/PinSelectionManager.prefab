@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PinSelectionManager
   movesState: {fileID: 11400000, guid: 739ae77a9e930ef44b22c2a741aa94c4, type: 2}
+  quotaState: {fileID: 11400000, guid: 00b9b53ecffb22e46a087d702a4da6a8, type: 2}

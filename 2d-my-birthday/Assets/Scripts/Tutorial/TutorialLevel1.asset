@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d435d3f99cc0bcd43acda669691ec54c, type: 3}
+  m_Name: TutorialLevel1
+  m_EditorClassIdentifier: Assembly-CSharp::TutorialDataSO
+  pages:
+  - Your visitor wants to know their age. Their birth year is on their ID card.
+  - The two green days on the calendar mark today and their birthday.
+  - A pin appears for each day between these dates.
+  - 'Select pins and use ADD or SUB to shape the numbers.
+
+    ADD: combines two
+    pins into their sum.
+
+    SUB: subtracts the second from the first.'
+  - 'Each operation costs one move. You have exactly as many moves as the days between
+    today and their birthday. '
+  - When one pin shows their exact age, drag it onto their ID card.
+  - Let's give them their ages!!

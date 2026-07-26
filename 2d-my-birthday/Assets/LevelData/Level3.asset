@@ -36,4 +36,4 @@ MonoBehaviour:
   useWeekendRule: 0
   startOffset: 0
   cellOverrides: []
-  tutorialData: {fileID: 0}
+  tutorialData: {fileID: 11400000, guid: 87cb0b757f4e03a4c86a32557da4acb4, type: 2}

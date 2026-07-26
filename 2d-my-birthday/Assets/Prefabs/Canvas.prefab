@@ -1007,7 +1007,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1293,8 +1293,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 21.48
-  m_fontSizeBase: 21.48
+  m_fontSize: 18.95
+  m_fontSizeBase: 18.95
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

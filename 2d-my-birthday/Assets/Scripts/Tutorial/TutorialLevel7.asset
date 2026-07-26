@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d435d3f99cc0bcd43acda669691ec54c, type: 3}
+  m_Name: TutorialLevel7
+  m_EditorClassIdentifier: Assembly-CSharp::TutorialDataSO
+  pages:
+  - Yellow slots are your days off. You get no pin.
+  - 'The one and only calendar. Days off? Whatever you say goes. '
+  - 'countdown picks a pin and counts it down by one, every move. That pin transforms
+    into a calendar pin. '
+  - combine a calendar pin with others, and order decides what happens.
+  - "Select the calendar pin first, and the result stays a calendar pin, still counting
+    down. The operation uses its value after that move's countdown tick.\n "
+  - 'Select a normal pin first instead, and the result becomes normal, the countdown
+    stops.
+
+    This time, the number used is the one before the countdown ticks
+    not after.'
