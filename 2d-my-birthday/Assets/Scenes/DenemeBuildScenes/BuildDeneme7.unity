@@ -2124,7 +2124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoveMarkerManager
   markerPrefab: {fileID: 9148642791330923950, guid: cdbb9d1da20a96d42b28861f01d348e5, type: 3}
   calendarBuilder: {fileID: 2020687968}
-  levelData: {fileID: 11400000, guid: 3322e225486a35c4d85ecd4ce5347fd0, type: 2}
+  levelData: {fileID: 11400000, guid: b4d1e39162a0cae46a7218226646e820, type: 2}
   offsetOnSlot: {x: 0, y: 0, z: 0}
   startingDayOffset: 0
 --- !u!4 &1527734752
@@ -2452,7 +2452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2abb180655ec274896957aad1f22f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CalendarBuilder
-  levelData: {fileID: 11400000, guid: 3322e225486a35c4d85ecd4ce5347fd0, type: 2}
+  levelData: {fileID: 11400000, guid: b4d1e39162a0cae46a7218226646e820, type: 2}
   levelState: {fileID: 11400000, guid: 3aabbe8e8a6a8f548a4c67ebedc4c62b, type: 2}
   slotPrefab: {fileID: 4636464680870290021, guid: 87e3b0e12336a4b4fa39b8d235c6b29b, type: 3}
   gridParent: {fileID: 553557880}
