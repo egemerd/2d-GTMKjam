@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d93c8d9e27c7f414c896971e35af812d, type: 3}
+  m_Name: Level11
+  m_EditorClassIdentifier: Assembly-CSharp::CalendarLevelData
+  totalDays: 30
+  columns: 7
+  startDay: 18
+  endDay: 23
+  defaultPinPrefab: {fileID: 3796665290363549456, guid: e58059f32b3fa1942b6010ba9a940f44, type: 3}
+  characterPrefab: {fileID: 1216499993424713937, guid: 99cbef5986df0a1439b15ea39291e0d9, type: 3}
+  characterSpawnPosition: {x: -6.5, y: 2.5, z: 0}
+  birthMonth: 1
+  birthYear: 1905
+  currentYear: 2007
+  availableOperations:
+  - operation: {fileID: 11400000, guid: 24377082d496ec847a6c66e8d5eac1a7, type: 2}
+    uses: 1
+  - operation: {fileID: 11400000, guid: 4f9ead4d52277e343a6fddfeb786d211, type: 2}
+    uses: 1
+  - operation: {fileID: 11400000, guid: c0899b1c44f9c88408d8ddbea3f1fc80, type: 2}
+    uses: 1
+  - operation: {fileID: 11400000, guid: 5295f4dfd166c294690c7b4872daf335, type: 2}
+    uses: 1
+  - operation: {fileID: 11400000, guid: 165397c0e6e1e2341b73175b935c0d62, type: 2}
+    uses: 2
+  skippedDays: 16000000
+  firstDayOfWeek: 1
+  useWeekendRule: 0
+  startOffset: 4
+  cellOverrides: []
+  tutorialData: {fileID: 11400000, guid: 654e48ad2bb19754790f29b8e3388933, type: 2}

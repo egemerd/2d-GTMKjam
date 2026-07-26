@@ -303,8 +303,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4289886876
-  m_fontColor: {r: 0.6104549, g: 0.4774831, b: 0.6981132, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -328,7 +328,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -849,7 +849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TypewriterPlayer
   targetText: {fileID: 212876870}
-  sequence: {fileID: 11400000, guid: a9ce1a85ae06cae49ad979a144a11545, type: 2}
+  sequence: {fileID: 11400000, guid: 2b3da9320c821ec4aaadc499b4e7e1e5, type: 2}
   allowSkip: 1
 --- !u!4 &2110416756
 Transform:

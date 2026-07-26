@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af03b8f01bdc3b34db36e398a07897e9, type: 3}
+  m_Name: DialogueSequenceEnding
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSequenceSO
+  entries:
+  - text: Wwhat are those? Are those pins?
+    charDelayOverride: 0
+    holdAfterOverride: 0
+    waitForInput: 0
+  - text: What do they do?
+    charDelayOverride: 0
+    holdAfterOverride: 0
+    waitForInput: 0
+  - text: Oh...
+    charDelayOverride: 0
+    holdAfterOverride: 0
+    waitForInput: 0
+  - text: So you calculate my age with those.
+    charDelayOverride: 0
+    holdAfterOverride: 0
+    waitForInput: 0
+  - text: Each pin is a day, I see. That's kind of cool.
+    charDelayOverride: 0
+    holdAfterOverride: 0
+    waitForInput: 0
+  - text: It makes me pretty old, I guess.
+    charDelayOverride: 0
+    holdAfterOverride: 0
+    waitForInput: 0
+  - text: These pins... they must be heavy. Or maybe they are, I don't know...
+    charDelayOverride: 0
+    holdAfterOverride: 0
+    waitForInput: 0
+  - text: Just don't throw them around like that.
+    charDelayOverride: 0
+    holdAfterOverride: 0
+    waitForInput: 0
+  - text: ...like I did.
+    charDelayOverride: 0
+    holdAfterOverride: 0
+    waitForInput: 0
+  defaultCharDelay: 0.04
+  defaultHoldAfter: 1.5

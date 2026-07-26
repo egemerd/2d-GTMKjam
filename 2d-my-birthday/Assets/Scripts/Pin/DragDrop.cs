@@ -74,6 +74,9 @@ public class DragDrop : MonoBehaviour
     private CharacterCard characterCard;
     private bool hasBeenReleasedOnce = false;
     private static DragDrop currentlyDragging = null;
+
+    public void MarkAsPickedUp() => hasBeenPickedUp = true;
+
     private void Awake()
     {
         originalOrders = new int[pinRenderers.Length];
@@ -428,9 +431,17 @@ public class DragDrop : MonoBehaviour
         return true;
     }
 
-    
+    public void ClearSlotReference()
+    {
+        if (currentSlot != null)
+        {
+            currentSlot.ClearPin();
+            currentSlot = null;
+        }
+        lastValidPos = transform.position; // dağıldıkları yer artık yeni "ev"
+    }
 
-    
+
 
     public void SetHomeSlot(CalendarSlot slot)
     {

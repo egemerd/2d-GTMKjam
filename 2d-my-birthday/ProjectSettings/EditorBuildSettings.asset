@@ -12,29 +12,65 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 225fefa4da9627d46a6996804f733acd
   - enabled: 1
-    path: Assets/Scenes/DenemeBuildScenes/BuildDeneme1.unity
-    guid: 241e3d8a1ffb5d4478c3b7d297aa0d6d
+    path: Assets/Scenes/RealBuildScenes/Level 1.unity
+    guid: f7f2b9fbc501b6d48800335c53eaec0f
   - enabled: 1
-    path: Assets/Scenes/DenemeBuildScenes/BuildDeneme2.unity
-    guid: 12631be214f2d6345a43293a44d5e877
+    path: Assets/Scenes/RealBuildScenes/Level 2.unity
+    guid: 6326a6535b0b65a47aaf542cf9fcc50a
   - enabled: 1
-    path: Assets/Scenes/DenemeBuildScenes/BuildDeneme3.unity
-    guid: 229945fc75c77194bba0e63defcfdf75
+    path: Assets/Scenes/RealBuildScenes/Level 3.unity
+    guid: dd29a3056aea8b9408f9ad731c2160c2
   - enabled: 1
-    path: Assets/Scenes/DenemeBuildScenes/BuildDeneme4.unity
-    guid: 8615c1fd5cdc0b041a7459389318b000
+    path: Assets/Scenes/RealBuildScenes/Level 4.unity
+    guid: 8f8ce9a2b78208648b91662d33941229
   - enabled: 1
-    path: Assets/Scenes/DenemeBuildScenes/BuildDeneme5.unity
-    guid: af3603da49d1ff343ae1f357602a56df
+    path: Assets/Scenes/RealBuildScenes/Level 5.unity
+    guid: e5d9b001c3d371c43b0ad62564eaf43c
   - enabled: 1
-    path: Assets/Scenes/DenemeBuildScenes/BuildDeneme6.unity
-    guid: d3b6d74fabd746c469e7d24d43faf2a4
+    path: Assets/Scenes/RealBuildScenes/Level 6.unity
+    guid: 21a0d0055d8cfbf42886f0df32cf4122
   - enabled: 1
-    path: Assets/Scenes/DenemeBuildScenes/BuildDeneme7.unity
-    guid: 05b5840c44e38eb43960ba2dff3f478b
+    path: Assets/Scenes/RealBuildScenes/Level 7.unity
+    guid: 000be0b19ff97d04b9aae24203288291
+  - enabled: 1
+    path: Assets/Scenes/RealBuildScenes/Level 8.unity
+    guid: e28a39d9159b95c4c9fe292544c0d3cd
+  - enabled: 1
+    path: Assets/Scenes/RealBuildScenes/Level 9.unity
+    guid: d5434a844a243cc48a5df5a59b74fff0
+  - enabled: 1
+    path: Assets/Scenes/RealBuildScenes/Level 10.unity
+    guid: bec69059e72553e439ce6894a75e644b
+  - enabled: 1
+    path: Assets/Scenes/RealBuildScenes/Level 11.unity
+    guid: ebbb9edcce4dc4140a2db0144068482b
+  - enabled: 1
+    path: Assets/Scenes/RealBuildScenes/Level 12.unity
+    guid: 67d15feca2126c1479f25f2212a64d58
   - enabled: 1
     path: Assets/Scenes/DenemeBuildScenes/EndingDeneme.unity
     guid: f9d1400e036e68847a15f947009516f8
+  - enabled: 0
+    path: Assets/Scenes/DenemeBuildScenes/BuildDeneme1.unity
+    guid: 241e3d8a1ffb5d4478c3b7d297aa0d6d
+  - enabled: 0
+    path: Assets/Scenes/DenemeBuildScenes/BuildDeneme2.unity
+    guid: 12631be214f2d6345a43293a44d5e877
+  - enabled: 0
+    path: Assets/Scenes/DenemeBuildScenes/BuildDeneme3.unity
+    guid: 229945fc75c77194bba0e63defcfdf75
+  - enabled: 0
+    path: Assets/Scenes/DenemeBuildScenes/BuildDeneme4.unity
+    guid: 8615c1fd5cdc0b041a7459389318b000
+  - enabled: 0
+    path: Assets/Scenes/DenemeBuildScenes/BuildDeneme5.unity
+    guid: af3603da49d1ff343ae1f357602a56df
+  - enabled: 0
+    path: Assets/Scenes/DenemeBuildScenes/BuildDeneme6.unity
+    guid: d3b6d74fabd746c469e7d24d43faf2a4
+  - enabled: 0
+    path: Assets/Scenes/DenemeBuildScenes/BuildDeneme7.unity
+    guid: 05b5840c44e38eb43960ba2dff3f478b
   - enabled: 0
     path: Assets/Scenes/MainDevelopmentScene.unity
     guid: 402787519474abe4d92900ab8d50741d

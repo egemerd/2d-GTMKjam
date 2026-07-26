@@ -16,6 +16,7 @@ MonoBehaviour:
   - Your customer wants to know their age. Their birth year is on their ID card.
   - The two green days on the calendar mark today and their birthday.
   - A pin appears for each day between these dates. Drag and drop them on the place.
+  - The button on the calendar drags them automaticly.
   - 'Select pins and use ADD or SUB to shape the numbers.
 
     ADD: combines two

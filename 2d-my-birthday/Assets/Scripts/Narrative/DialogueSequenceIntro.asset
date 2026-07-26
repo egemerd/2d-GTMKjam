@@ -10,18 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af03b8f01bdc3b34db36e398a07897e9, type: 3}
-  m_Name: DialogueSequence
+  m_Name: DialogueSequenceIntro
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSequenceSO
   entries:
-  - text: You are the KING!
+  - text: EEvery calendar in the universe has vanished except one.
     charDelayOverride: 0
     holdAfterOverride: 0
     waitForInput: 0
-  - text: You are the AASDASDASD
+  - text: And it belongs to you.
     charDelayOverride: 0
     holdAfterOverride: 0
     waitForInput: 0
-  - text: You are the KING!AEGASD ASD ASDASDAEG
+  - text: A precious object. Handle it with care.
+    charDelayOverride: 0
+    holdAfterOverride: 0
+    waitForInput: 0
+  - text: With this calendar comes a duty one of great importance.
+    charDelayOverride: 0
+    holdAfterOverride: 0
+    waitForInput: 0
+  - text: Humans, creatures, every living being in the universe now comes to you.
+    charDelayOverride: 0
+    holdAfterOverride: 0
+    waitForInput: 0
+  - text: You are an Age Officer.
     charDelayOverride: 0
     holdAfterOverride: 0
     waitForInput: 0
