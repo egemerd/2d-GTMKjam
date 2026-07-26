@@ -417,10 +417,11 @@ public class DragDrop : MonoBehaviour
         if(!accepted)
         {
             transform.DOMove(Vector3.zero, 0.25f).SetEase(Ease.OutBack);
+            levelState?.ReportLoss();
         }
         else
         {
-            transform.DOMove(characterCard.GetPinArea().position, 0.25f).SetEase(Ease.OutBack);
+            transform.DOMove(characterCard.GetPinArea().position, 0.25f).SetEase(Ease.OutBack);      
         }        
         
         coasting = false;

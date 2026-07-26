@@ -19,6 +19,6 @@ public class LevelManager : MonoBehaviour
     {
         // Hamle bittiðinde eðer hâlâ InProgress ise kaybettin demektir
         // (Win olsaydý zaten LevelState kararý vermiþ olurdu)
-        mainLevelState?.ReportLoss();
+        //mainLevelState?.ReportLoss();
     }
 }

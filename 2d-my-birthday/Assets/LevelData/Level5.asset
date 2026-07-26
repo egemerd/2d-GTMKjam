@@ -10,26 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d93c8d9e27c7f414c896971e35af812d, type: 3}
-  m_Name: Level1
+  m_Name: Level5
   m_EditorClassIdentifier: Assembly-CSharp::CalendarLevelData
   totalDays: 30
   columns: 7
-  startDay: 24
-  endDay: 26
+  startDay: 11
+  endDay: 19
   defaultPinPrefab: {fileID: 3796665290363549456, guid: e58059f32b3fa1942b6010ba9a940f44, type: 3}
   characterPrefab: {fileID: 1216499993424713937, guid: 99cbef5986df0a1439b15ea39291e0d9, type: 3}
   characterSpawnPosition: {x: -6.5, y: 2.5, z: 0}
   birthMonth: 1
-  birthYear: 2037
-  currentYear: 2060
+  birthYear: 1755
+  currentYear: 1989
   availableOperations:
   - operation: {fileID: 11400000, guid: f464773a50125c54ca7586dbf9f6e40a, type: 2}
     uses: 2
   - operation: {fileID: 11400000, guid: 4f9ead4d52277e343a6fddfeb786d211, type: 2}
     uses: 2
+  - operation: {fileID: 11400000, guid: 165397c0e6e1e2341b73175b935c0d62, type: 2}
+    uses: 2
+  - operation: {fileID: 11400000, guid: 5295f4dfd166c294690c7b4872daf335, type: 2}
+    uses: 2
+  - operation: {fileID: 11400000, guid: c0899b1c44f9c88408d8ddbea3f1fc80, type: 2}
+    uses: 2
   skippedDays: 
   firstDayOfWeek: 1
-  useWeekendRule: 0
-  startOffset: 3
+  useWeekendRule: 1
+  startOffset: 0
   cellOverrides: []
   tutorialData: {fileID: 0}
